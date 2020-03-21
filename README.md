@@ -1,7 +1,10 @@
-# MSNR-20-4MS
+# MSNR-20-4MS ~ LLDB debager
 
-## Naziv teme: LLDB debager
-## Tim: 42/2017 Momir Adzemovic 149/2016 Milos Mikovic 165/2016 Marko Spasic 70/2015 Mladen Dobrasinovic
+## Clanovi tima: 
+- Momir Adzemovic 42/2017  
+- Milos Mikovic 149/2016
+- Marko Spasic 165/2016
+- Mladen Dobrasinovic 70/2015
 
 ## Naslovi:
 
