@@ -8,10 +8,10 @@
 
 ## Naslovi:
 
-### Sta je debagovanje?
-### Koje su specificnosti debagovanja LLDB debagerom? 
-### Gde se on koristi i za koje jezike? 
-### Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako? 
-### Poredjenje sa drugim popularnim debagerima.
+- Sta je debagovanje?
+- Koje su specificnosti debagovanja LLDB debagerom? 
+- Gde se on koristi i za koje jezike? 
+- Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako? 
+- Poredjenje sa drugim popularnim debagerima.
 
 https://lldb.llvm.org/
