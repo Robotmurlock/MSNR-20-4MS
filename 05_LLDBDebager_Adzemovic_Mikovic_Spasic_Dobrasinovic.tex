@@ -98,15 +98,15 @@ Na svakom mestu u tekstu naglasiti odakle tačno potiču informacije. Uz sve nov
 Naredni primeri ilustruju način uvođenja enlegskih termina kao i citiranje.
 
 \begin{primer}
-Problem zaustavljanja (eng.~{\em halting problem}) je neodlučiv \cite{haltingproblem}.
+Problem zaustavljanja (eng.~{\em halting problem}) je neodlučiv.
 \end{primer}
 
 \begin{primer}
-Za prevođenje programa napisanih u programskom jeziku C može se koristiti GCC kompajler \cite{gcc}.
+Za prevođenje programa napisanih u programskom jeziku C može se koristiti GCC kompajler.
 \end{primer}
 
 \begin{primer}
- Da bi se ispitivala ispravost softvera, najpre je potrebno precizno definisati njegovo ponašanje \cite{laski2009software}. 
+ Da bi se ispitivala ispravost softvera, najpre je potrebno precizno definisati njegovo ponašanje. 
 \end{primer}
 
 Reference koje se koriste u ovom tekstu zadate su u datoteci {\em seminarski.bib}. Prevođenje u pdf format u Linux okruženju može se uraditi na sledeći način:
@@ -154,14 +154,6 @@ Slike i tabele treba da budu u svom okruženju, sa odgovarajućim naslovima, obe
 \begin{verbatim}
 \usepackage{graphicx}
 \end{verbatim}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.75]{panda.jpg}
-\end{center}
-\caption{Pande}
-\label{fig:pande}
-\end{figure}
 
 Na svaku sliku neophodno je referisati se negde u tekstu. Na primer, na slici \ref{fig:pande} prikazane su pande. 
 \end{primer}
@@ -249,7 +241,7 @@ Ovde pišem tekst.
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
 
-Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi koji se operativni sistem koristi, a i samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD u zavisnosti od od operativnog sistema na kojem je instaliran:
+Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi koji se operativni sistem koristi, a i samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za C++ u zavisnosti od od operativnog sistema na kojem je instaliran \cite{vsc_support}:
 \begin{itemize}
 	\item \textbf{Linux}: GDB
 	\item \textbf{macOS}: LLDB or GDB
@@ -258,21 +250,21 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=100mm,height=50mm]{tabela_poredjenje1.png}
+		\includegraphics[width=100mm,height=50mm]{Slike/tabela_poredjenje1.png}
 	\end{center}
-	\caption{LLDB, GDB, Visual Studio Debugger}
+	\caption{LLDB, GDB, Visual Studio Debugger \cite{gdb}\cite{lldb}\cite{vsd}}
 	\label{fig:tabela_poredjenje1}
 \end{figure}
 
 \subsection{Poređenje: GDB i LLDB}
 \label{subsec: GDB i LLDB}
 
-Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU). Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs. Način korišćenje ova dva debagera je veoma sličan i skup komandi se većinom poklapa. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB. Novije verzije GDB podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS.
+Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Način korišćenje ova dva debagera je veoma sličan i skup komandi se većinom poklapa. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Novije verzije GDB podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS.
 
 \subsection{Visual Studio Debugger i LLDB}
 \label{subsec: Visual Studio Debugger i LLDB}
 
-VIsual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku.
+VIsual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
 
 \section{Zaključak}
 \label{sec:zakljucak}
