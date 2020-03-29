@@ -90,6 +90,98 @@ Koristite direknto naša slova:
 \end{verbatim}
 
 
+% Mladenov deo
+\section{Upoznavanje sa LLDB-om}
+LLDB podržava standardne funkcije debagovanja preko komandne linije i može se
+koristiti kao debager u interaktivnom razvojnom okruženju. Konkretno, sa
+debagerom pokrenutim nad programom prevedenim sa debug opcijama omogućava
+se \cite{lldb_to_gdb_map}:
+
+\begin{itemize}
+\item{Aktiviranje procesa programa sa određenim argumentima komandne linije
+(eng. command line arguments).}
+
+\item{Korišćenje breakpoint-a (određenog reda ili funkcije u izvornom kodu pri
+  kojima debager zaustavlja izvršavanje programa kada se stigne do odgovarajućeg
+  dela izvršnog koda).}
+  
+\item{Korišćenje watchpoint-a (određene promenljive, takve da debager zaustavlja
+proces ili nit kada se njeno stanje promeni).}
+
+\item{Korišćenje dodatnih uslova nad breakpoint-ovima i watchpoint-ovima.}
+  \begin{itemize}
+  \item{Nastavljanje ili pokretanje programa.}
+  \end{itemize}
+
+\item{Pokretanje procesa red po red (sa ,,ulaženjem'' u funkciju ili bez).}
+
+\item{Istraživanje promenljivih ili memorije procesa.}
+
+\item{Izvršavanje proizvoljnog izraza nad stanjem procesa (npr. menjanje neke
+promenljive na steku).}
+
+\item{Istraživanje steka okvira poziva.}
+
+\item{Izvršavanje drugih naprednih i raznih funkcija.}
+\end{itemize}
+
+Ono što ističe LLDB je omogućavanje korišćenja eksternih skripti za debagovanje
+preko javnog API-a za Python, izršavanje proizvoljnog Python koda unutar
+debagera \cite{lldb_python} (preko ugnježdenog interpretatora (eng. embedded
+interpreter) i omogućavanje REPL (Read-Evaluate-Print-Loop) funkcija za
+programske jezike zajedno sa mogućnostima debagovanja \cite{swift_lldb_repl}.
+
+\subsection{LLDB interfejs komandne linije}
+LLDB interfejs komandne linije (eng. command line interface) se aktivira pozivom
+\verb|lldb| u ljusci (eng. shell) sa programom koji želimo debagovati kao
+argumentom. Program komandne linije \verb|lldb| se odlikuje strukturisanom sintaksom
+osnovnih komandi koja je sledećeg oblika \cite{lldb_tutorial}:
+\begin{primer}
+  \begin{footnotesize}
+\begin{verbatim}
+
+<imenica> <glagol> [-opcije [vrednost-opcije]] [argument [argument...]]
+\end{verbatim}
+  \end{footnotesize}
+\end{primer}
+U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i
+skraćenice (eng. alias) za komande koje mogu odstupati od ovog oblika. Upravo
+zato što je ovaj format komandi jako strukturisan mogu nam biti pogodni skraćeni
+oblici komandi koji mogu biti sličniji onome što je poznato korisnicima drugih
+debagera \cite{apple_lldb_comms}. U tabeli \ref{tab:tabela3} su date neke od
+osnovnih komandi kao primer korišćenja interfejsa i reprezentativni prikaz
+širokog skupa mogućnosti LLDB-a koji nije naveden u potpunosti u ovom
+radu. Posebno se ističu komande \verb|help| i \verb|apropos|, koje mogu biti
+korisne početnicima u korišćenju ovog alata.
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Upotreba interfejsa komandne linije LLDB-a \cite{lldb_to_gdb_map}\cite{lldb_tutorial}.}
+    \small
+    \begin{tabular}{|r|p{5cm}|}
+      \hline
+      \verb|process launch -- <argumenti>|
+      & Pokreće izabrani program sa datim argumentima. \\ \hline
+      \verb|thread step-in|
+      & U trenutnoj niti nastavlja izvršavanje programa sledeće instrukcije izvornog koda, ulazeći u pozive funkcija.  \\ \hline
+      \verb|thread step-inst-over|
+      & U trenutnoj niti nastavlja izvršavanje programa sledeće instrukcije izvršnog koda, ne ulazeći u pozive funkcija. \\ \hline
+      \verb|breakpoint set --file 1.c --line 42|
+      & Postavlja breakpoint na red 42 u izvornom kodu programa 1.c. \\ \hline
+      \verb|breakpoint list|
+      & Ispisuje postojeće breakpoint-ove debagera. \\ \hline
+      \verb|breakpoint disable 1|
+      & Deaktivira breakpoint 1. \\ \hline
+      \verb|apropos <ključna_reč>|
+      & Traži u pomoći za upotrebu komandi (eng. command help) datu ključnu reč. \\ \hline
+      \verb|help|
+      & Štampa pomoć za komande. (help se može koristiti i za nalaženje pomoći za upotrebu potkomandi određene komande \cite{apple_lldb_comms}). \\ \hline
+    \end{tabular}
+    \label{tab:tabela3}
+  \end{center}
+\end{table}
+
+
 \section{Engleski termini i citiranje}	
 \label{sec:termini_i_citiranje}
 
