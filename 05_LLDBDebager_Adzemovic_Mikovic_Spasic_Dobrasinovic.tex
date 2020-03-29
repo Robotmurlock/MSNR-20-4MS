@@ -92,7 +92,8 @@ Koristite direknto naša slova:
 % Milosev deo
 \section{Šta je debagovanje}
 \label{sec:sta je debagovanje}
-
+\cite{debagovanje_vladaf}
+\cite{bagovi_smalkov}
 
 Debagovanje je proces identifikacije pravog problema i njegovo ispravljanje.
 “Debagovanje je duplo teže od kodiranja, ako napisete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.( Brian w. Keringhan)
@@ -202,6 +203,66 @@ Mejnfrejm debugeri:
 	\item CA/EZTEST
 \end{enumerate}
 
+% Marov deo
+\section{Gde se on koristi i za koje jezike? }
+\label{sec: Gde se on koristi i za koje jezike?}
+LLVM debager se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
+Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Komplentnost skupa funkcionalnosti varira od platforme do platforme.
+\begin{itemize}
+\item FreeBSD - zaostaje za Linux-om, ali brzo napreduje.
+\item Linux - Približava se kompletnosti funkcionalnosti za debagovanje x86-64, i386, ARM, AArch64, IBM POWER (ppc64), IBM Z (s390x=, i MIPS64 programa.
+\item macOS - LLDB je sistemski debager na macOS, iOS, tvOS, i watchOS za x86, i386, ARM, i AArch64 debagovanje. Na ovoj platformi ima najbogatiji skup funkcionalnosti koje implementira.
+\item Windows - I dalje u razvojnoj fazi, ali već koristan za i386 programe.
+\end{itemize}
+Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama.
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.8]{Slike/marko_tabela.png}
+	\end{center}
+	\caption{feature table}
+	\label{fig:feature_table}
+\end{figure}
+
+\section{Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
+\label{subsec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
+
+LLDB se može koristiti u Visual Studio Code, Eclipse, CLion, Xcode 5 gde je i podrazumevani debager. 
+Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
+Podržava:
+\begin{itemize}
+\item Debugging on Linux (x64 or ARM), macOS and Windows*,
+\item Conditional breakpoints, function breakpoints, data breakpoints, logpoints,
+\item Launch debuggee in integrated or external terminal,
+\item Disassembly view with instruction-level stepping,
+\item Loaded modules view,
+\item Python scripting,
+\item HTML rendering for advanced visualizations,
+\item Rust language support with built-in visualizars for vectors, strings and other standard types,
+\item Global and workspace defaults for launch configurations,
+\item Remote debugging,
+\item Reverse debugging (experimental, requires compatible backend).
+\end{itemize}
+
+U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka koji integrše postojeći lldb na sistemu sa eclipse razvojnim okruženjem. Radi na svim platformama koje podržava lldb i eclipse. Za razliku od VCS ima nekoliko ograničenja:
+
+\begin{itemize}
+\item Debagovanje na daljinu nije moguće
+\item Core dump debagovanje nije moguće
+\item Watch points ne radi
+\item Ne može se izmeniti vrednost promenljivih tokom debagovanja
+\item Ne može se menjati sadržaj memorije
+\item Skoči na liniju, pomeri se na liniju nije implementirano
+Modules view se ne popuni
+\end{itemize}
+
+
+LLLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama. Postoji i eksperemintalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi. \\
+\indent Da bi omogućili korišćenje lldb potrebno je u podešavanjima za dati projekat odabrati postojeći lldb debager. 
+Ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.
+
+
 % Mladenov deo
 \section{Upoznavanje sa LLDB-om}
 LLDB podržava standardne funkcije debagovanja preko komandne linije i može se
@@ -292,108 +353,6 @@ korisne početnicima u korišćenju ovog alata.
     \label{tab:tabela3}
   \end{center}
 \end{table}
-
-
-\section{Engleski termini i citiranje}	
-\label{sec:termini_i_citiranje}
-
-Na svakom mestu u tekstu naglasiti odakle tačno potiču informacije. Uz sve novouvedene termine u zagradi naglasiti od koje engleske reči termin potiče. 
-
-Naredni primeri ilustruju način uvođenja enlegskih termina kao i citiranje.
-
-\begin{primer}
-Problem zaustavljanja (eng.~{\em halting problem}) je neodlučiv.
-\end{primer}
-
-\begin{primer}
-Za prevođenje programa napisanih u programskom jeziku C može se koristiti GCC kompajler.
-\end{primer}
-
-\begin{primer}
- Da bi se ispitivala ispravost softvera, najpre je potrebno precizno definisati njegovo ponašanje. 
-\end{primer}
-
-Reference koje se koriste u ovom tekstu zadate su u datoteci {\em seminarski.bib}. Prevođenje u pdf format u Linux okruženju može se uraditi na sledeći način:
-\begin{verbatim}
-pdflatex TemaImePrezime.tex 
-bibtex TemaImePrezime.aux 
-pdflatex TemaImePrezime.tex 
-pdflatex TemaImePrezime.tex 
-\end{verbatim}
-Prvo latexovanje je neophodno da bi se generisao {\em .aux} fajl. {\em bibtex} proizvodi odgovarajući {\em .bbl} fajl koji se koristi za generisanje literature. 
-Potrebna su dva prolaza (dva puta pdflatex) da bi se reference ubacile u tekst (tj da ne bi ostali znakovi pitanja umesto referenci). Dodavanjem novih referenci potrebno je ponoviti ceo postupak.  
-
-
-
-
-
-
-
-
-
-
-
-Broj naslova i podnaslova je proizvoljan. Neophodni su samo Uvod i Zaključak. Na poglavlja unutar teksta referisati se po potrebi. 
-\begin{primer}
-U odeljku \ref{sec:naslov1} precizirani su osnovni pojmovi, dok su zaključci dati u odeljku \ref{sec:zakljucak}.
-\end{primer}
-
-Još jednom da napomenem da nema razloga da pišete:
-\begin{verbatim}
-\v{s} i \v{c} i \'c ...
-\end{verbatim}
-Možete koristiti srpska slova
-\begin{verbatim}
-š i č i ć ... 
-\end{verbatim}
-
-
-
-\section{Slike i tabele}
-\label{slike_i_tabele}
-
-Slike i tabele treba da budu u svom okruženju, sa odgovarajućim naslovima, obeležene labelom da koje omogućava referenciranje. 
-
-\begin{primer} Ovako se ubacuje slika. Obratiti pažnju da je dodato i 
-\begin{verbatim}
-\usepackage{graphicx}
-\end{verbatim}
-
-Na svaku sliku neophodno je referisati se negde u tekstu. Na primer, na slici \ref{fig:pande} prikazane su pande. 
-\end{primer}
-
-\begin{primer} I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
-
-\begin{table}[h!]
-\begin{center}
-\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
-\begin{tabular}{|c|l|r|} \hline
-centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
-a &b&c\\ \hline
-d &e&f\\ \hline
-\end{tabular}
-\label{tab:tabela1}
-\end{center}
-\end{table}
-
-\end{primer}
-
-\section{K\^{o}d i paket listings}
-Za ubacivanje koda koristite paket \textbf{listings}:
-\url{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}
-
-\begin{primer}
-Primer ubacivanja koda za programski jezik Python dat je kroz listing \ref{simple}. Za neki drugi programski jezik, treba podesiti odgvarajući programski jezik u okviru defnisanja stila.
-\end{primer}
-\begin{lstlisting}[caption={Primer ubacivanja koda u tekst},frame=single, label=simple]
-# This program adds up integers in the command line
-import sys
-try:
-    total = sum(int(arg) for arg in sys.argv[1:])
-    print 'sum =', total
-except ValueError:
-    print 'Please supply integer arguments'
-\end{lstlisting}
 
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
