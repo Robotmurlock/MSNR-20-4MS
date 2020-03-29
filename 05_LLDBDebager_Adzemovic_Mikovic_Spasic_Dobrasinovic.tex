@@ -89,6 +89,118 @@ Koristite direknto naša slova:
 š i č i ć ... 
 \end{verbatim}
 
+% Milosev deo
+\section{Šta je debagovanje}
+\label{sec:sta je debagovanje}
+
+
+Debagovanje je proces identifikacije pravog problema i njegovo ispravljanje.
+“Debagovanje je duplo teže od kodiranja, ako napisete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.( Brian w. Keringhan)
+Koraci pri debagovanju:
+uočavanje da postoji greška
+razumevanje greške
+lociranje greške
+ispravljanje greške
+Često je najteži deo ispravno razumevanje i rano otkrivanje greške, kada se greška locira, ispravljanje najčešće nije veliki problem.
+
+
+
+\subsection{Bagovi uopšteno}
+\label{subsec:podnaslov1}
+
+Postojanje grešaka(bagova) se često neopravdano poistovećuje sa propustima u programiranju.
+U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu…
+Zato se često termini propust i greška koriste u širem kontekstu razvoja a termin bag u užem i vezan je za propuste u programiranju.\\
+\indent Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
+\begin{enumerate}
+	\item \textbf{Nekonzistentnosti u korisničkom interfejsu}: često je slučaj da se komanda ctr+f koristi za pretraživanje dokumenta, Outlook koristi   
+	tu komandu za prosleđivanje poruke
+	\item \textbf{Neispunjena očekivanja}: dobijanje neočekivanog(pogrešnog) rezultata
+	\item \textbf{Slabe performanse}: stalno ili povremeno čekanje rezultata zbog lošeg odziva sistema, takvi programi su često ne upotrebljivi
+	\item \textbf{Padovi sistema i oštećenja podataka}: predstavljaju najopasniji vid bagova, mogu trajno oštetiti sistem i podatke
+\end{enumerate}
+\indent Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim gradjenjem koda.Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju. 
+
+
+\subsection{Metode debagovanja}
+\label{subsec:podnaslov2}
+
+\begin{enumerate}
+	\item Neformalno debagovanje
+	Neformalno debagovanje predstavlja jednostavan i površan pristup i čine ga dva koraka.
+	\begin{enumerate}
+		\item Pokušati sa nekom jednostavnom popravkom.
+		\item Ponavljati korak (a) dok se problem ne reši
+	\end{enumerate}
+	Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni da će rešiti problem.Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema.
+	
+	\item Empirijski naučni metod
+	Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
+	Čine ga sledeći koraci:
+	\begin{enumerate}
+		\item Posmatrati uočen problem
+		\item Postaviti hipoteze o uzroku problema
+		\item Na osnovu hipoteza napraviti predviđanje \item ponašanja
+		\item Eksperimentalno proveriti ispravnost predviđanja
+		Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje. 
+	\end{enumerate}
+	\indent Uopšteno gledano ovo je najbolji pristup debagovanju.Često je jako zahtevan i oduzima dosta vremena ali je sa druge strane je temeljan i koncizan.
+	
+	
+	\item Heurističko debagovanje
+	Ova vrsta debagovanja podrazumeva postojanje heuristike(skup pravila) koja olakšava brže i efikasnije pronalaženje grešaka.Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova.Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i dr.Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju “dovoljno dobra rešenja”.
+\end{enumerate}
+
+
+
+\subsection{Osnovna pravila debagovanja}
+\label{subsec:podnaslovN}
+
+Neka od osnovnih pravila debagovanja su:
+\begin{enumerate}
+	\item Razumeti sistem
+	\item Navesti sistem na grešku
+	\item Najpre posmatrati pa zatim razmišljati
+	\item Podeli pa vladaj
+	\item Praviti samo jednu po jednu izmenu
+	\item Proveriti naizgled trivijalne stvari
+	\item Praviti i čuvati tragove izvršavanja
+	\item Ako nismo popravili bag, onda on nije popravljen
+	\item Zatražiti tuđe mišljenje
+	Ovde mogu da objanim pravila
+\end{enumerate}
+
+\subsection{Tehnike za prevenciju bagova}
+\label{subsec:Tehnike za prevenciju bagova}
+
+Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje.Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka.Neke od njih su pravljenje pretpostavki(asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda…Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu.Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije.
+
+\subsection{Debager}
+\label{subsec:Debager}
+
+Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje rada i proveru ispravnosti drugih programa.Debugeri daju napredne funkcije kao što su pokretanje programa korak po korak (single-stepping), praćenje vrednosti promenjivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora, zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida (breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.\\
+\indent Većina popularnih debugera daje samo jednostavno komandno-linijsko okruženje(command-line interface - CLI), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (GUI) debugera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad.Neki debugeri pružaju i mogućnosti obrnutog debagovanja(debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa(Step Beckward).Jedan od debugera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju VisualStudio.Debagovanje unazad je jako korisno i sve se više koriste debugeri koji omogućavaju ovo svojstvo.Mana debagovanja unazad je usporavanje čitavog procesa debagovnja pa čak i do dva puta.Debugeri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika.Neki debugeri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisnika da pristupa memoriji za koju nema dozvolu i slično.
+
+\subsection{Lista debagera}
+\label{sec:Lista debagera}
+
+Najčešće korišćeni debugeri:
+\begin{enumerate}
+	\item GDB(gnu debuger)
+	\item Firefox javascript 
+	\item Lldb
+	\item IntelliTrace
+	\item Windbg
+	\item Valgrind
+	\item Watcom
+\end{enumerate}
+Mejnfrejm debugeri:
+\begin{enumerate}
+	\item XPEDITER
+	\item z/XDC
+	\item IBM Oliver
+	\item CA/EZTEST
+\end{enumerate}
 
 % Mladenov deo
 \section{Upoznavanje sa LLDB-om}
@@ -282,53 +394,6 @@ try:
 except ValueError:
     print 'Please supply integer arguments'
 \end{lstlisting}
-
-
-\section{Prvi naslov}
-\label{sec:naslov1}
-
-
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-
-
-\subsection{Prvi podnaslov}
-\label{subsec:podnaslov1}
-
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-
-\subsection{Drugi podnaslov}
-\label{subsec:podnaslov2}
-
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-
-
-\subsection{... podnaslov}
-\label{subsec:podnaslovN}
-
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
 
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
