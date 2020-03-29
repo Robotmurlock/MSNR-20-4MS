@@ -246,33 +246,33 @@ Ovde pišem tekst.
 Ovde pišem tekst. 
 Ovde pišem tekst. 
 
-\section{n-ti naslov}
+\section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi koji se operativni sistem koristi, a i samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD u zavisnosti od od operativnog sistema na kojem je instaliran:
+\begin{itemize}
+	\item \textbf{Linux}: GDB
+	\item \textbf{macOS}: LLDB or GDB
+	\item \textbf{Windows}: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
+\end{itemize}
 
-\subsection{... podnaslov}
-\label{subsec:podnaslovK}
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=100mm,height=50mm]{tabela_poredjenje1.png}
+	\end{center}
+	\caption{LLDB, GDB, Visual Studio Debugger}
+	\label{fig:tabela_poredjenje1}
+\end{figure}
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+\subsection{Poređenje: GDB i LLDB}
+\label{subsec: GDB i LLDB}
 
-\subsection{... podnaslov}
-\label{subsec:podnaslovM}
+Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU). Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs. Način korišćenje ova dva debagera je veoma sličan i skup komandi se većinom poklapa. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB. Novije verzije GDB podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS.
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+\subsection{Visual Studio Debugger i LLDB}
+\label{subsec: Visual Studio Debugger i LLDB}
 
+VIsual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku.
 
 \section{Zaključak}
 \label{sec:zakljucak}
