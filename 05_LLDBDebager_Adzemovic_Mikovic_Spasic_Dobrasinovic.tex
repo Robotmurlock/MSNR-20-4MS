@@ -81,7 +81,7 @@ Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovan
 
 Debagovanje je proces identifikacije pravog problema i njegovo ispravljanje.
 “Debagovanje je duplo teže od kodiranja, ako napisete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.( Brian w. Keringhan) \cite{debagovanje_vladaf}\\
-Koraci pri debagovanju \cite{bagovi_smalkov}:
+Koraci pri debagovanju\cite{bagovi_smalkov}:
 \begin{enumerate}
 \item uočavanje da postoji greška
 \item razumevanje greške
@@ -106,7 +106,7 @@ Zato se često termini propust i greška koriste u širem kontekstu razvoja a te
 	\item \textbf{Slabe performanse}: stalno ili povremeno čekanje rezultata zbog lošeg odziva sistema, takvi programi su često ne upotrebljivi
 	\item \textbf{Padovi sistema i oštećenja podataka}: predstavljaju najopasniji vid bagova, mogu trajno oštetiti sistem i podatke
 \end{enumerate}
-\indent Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim gradjenjem koda.Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju. \cite{debagovanje_vladaf}
+\indent Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim gradjenjem koda.Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju. \cite{bagovi_smalkov}
 
 
 \subsection{Metode debagovanja}
@@ -119,7 +119,7 @@ Zato se često termini propust i greška koriste u širem kontekstu razvoja a te
 		\item Pokušati sa nekom jednostavnom popravkom.
 		\item Ponavljati korak (a) dok se problem ne reši
 	\end{enumerate}
-	Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni da će rešiti problem.Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema.\cite{debagovanje_vladaf}
+	Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni da će rešiti problem.Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema.\cite{bagovi_smalkov}
 	
 	\item Empirijski naučni metod
 	Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
@@ -131,36 +131,17 @@ Zato se često termini propust i greška koriste u širem kontekstu razvoja a te
 		\item Eksperimentalno proveriti ispravnost predviđanja
 		Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje.
 	\end{enumerate}
-	\indent Uopšteno gledano ovo je najbolji pristup debagovanju.Često je jako zahtevan i oduzima dosta vremena ali je sa druge strane je temeljan i koncizan.\cite{debagovanje_vladaf}
+	\indent Uopšteno gledano ovo je najbolji pristup debagovanju.Često je jako zahtevan i oduzima dosta vremena ali je sa druge strane je temeljan i koncizan.\cite{bagovi_smalkov}
 	
 	
 	\item Heurističko debagovanje
-	Ova vrsta debagovanja podrazumeva postojanje heuristike(skup pravila) koja olakšava brže i efikasnije pronalaženje grešaka.Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova.Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i dr.Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju “dovoljno dobra rešenja”.\cite{debagovanje_vladaf}
-\end{enumerate}
-
-
-
-\subsection{Osnovna pravila debagovanja}
-\label{subsec:podnaslovN}
-
-Neka od osnovnih pravila debagovanja su\cite{debagovanje_vladaf}:
-\begin{enumerate}
-	\item Razumeti sistem
-	\item Navesti sistem na grešku
-	\item Najpre posmatrati pa zatim razmišljati
-	\item Podeli pa vladaj
-	\item Praviti samo jednu po jednu izmenu
-	\item Proveriti naizgled trivijalne stvari
-	\item Praviti i čuvati tragove izvršavanja
-	\item Ako nismo popravili bag, onda on nije popravljen
-	\item Zatražiti tuđe mišljenje
-	Ovde mogu da objanim pravila
+	Ova vrsta debagovanja podrazumeva postojanje heuristike(skup pravila) koja olakšava brže i efikasnije pronalaženje grešaka.Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova.Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i dr.Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju “dovoljno dobra rešenja”.\cite{bagovi_smalkov}
 \end{enumerate}
 
 \subsection{Tehnike za prevenciju bagova}
 \label{subsec:Tehnike za prevenciju bagova}
 
-Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje.Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka.Neke od njih su pravljenje pretpostavki(asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda…Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu.Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije\cite{debagovanje_vladaf}.
+Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje.Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka.Neke od njih su pravljenje pretpostavki(asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda…Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu.Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije\cite{bagovi_smalkov}.
 
 \subsection{Debager}
 \label{subsec:Debager}
