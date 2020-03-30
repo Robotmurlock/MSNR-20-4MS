@@ -72,7 +72,8 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni broj teme, temu seminarskog rada, kao i prezimena članova grupe. Precizna uputstva na temu imenovnja će biti data na formi za predaju seminarskog rada. Predaja seminarskih radova biće isključivo preko veb forme, a NE slanjem mejla. Link na formu će biti dat u okviru obaveštenja na strani kursa. Vodite računa da prilikom predavanja seminarskog rada predate samo one fajlove koji su neophodni za ponovno generisanje pdf datoteke. To znači da pomoćne fajlove, kao što su .log, .out, .blg, .toc, .aux i slično, \textbf{ne treba predavati}.
+Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLVM debagerom. Predstavljena su poređenja LLVM debagera sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLVM debager pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
+
 
 % Milosev deo
 \section{Šta je debagovanje}
@@ -202,38 +203,29 @@ Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Ko
 Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama.
 
 
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[scale=0.8]{Slike/marko_tabela.png}
-	\end{center}
-	\caption{feature table}
-	\label{fig:feature_table}
-\end{figure}
 
 \section{Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 \label{subsec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 
 LLDB se može koristiti u Visual Studio Code, Eclipse, CLion, Xcode 5 gde je i podrazumevani debager. 
+
+\subsection{Visual Studio Code}
 Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
 Podržava:
 \begin{itemize}
-\item Debugging on Linux (x64 or ARM), macOS and Windows*,
-\item Conditional breakpoints, function breakpoints, data breakpoints, logpoints,
-\item Launch debuggee in integrated or external terminal,
-\item Disassembly view with instruction-level stepping,
-\item Loaded modules view,
-\item Python scripting,
-\item HTML rendering for advanced visualizations,
-\item Rust language support with built-in visualizars for vectors, strings and other standard types,
-\item Global and workspace defaults for launch configurations,
-\item Remote debugging,
-\item Reverse debugging (experimental, requires compatible backend).
+\item Debagovanje na Linux (x64 or ARM), macOS i Windows,
+\item Uslovni breakpoint-i, breakpoint-i na funkcijama, breakpoint'i na podacima
+\item Pokretanje iz internog ili eksternog terminala,
+\item Dissasembly pogled i kretanje instrukciju po instrukciju,
+\item Python skripte,
+\item HTML renederovanje za naprednu vizuelizaciju,
+\item Podrška za Rust programski jezik sa vizuelizacijama za vektor, string i liste
 \end{itemize}
-
+\subsection{Eclipse}
 U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka koji integrše postojeći lldb na sistemu sa eclipse razvojnim okruženjem. Radi na svim platformama koje podržava lldb i eclipse. Za razliku od VCS ima nekoliko ograničenja:
 
 \begin{itemize}
-\item Debagovanje na daljinu nije moguće
+\item Debagovanje sa drugog računara nije moguće
 \item Core dump debagovanje nije moguće
 \item Watch points ne radi
 \item Ne može se izmeniti vrednost promenljivih tokom debagovanja
@@ -242,10 +234,13 @@ U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse 
 Modules view se ne popuni
 \end{itemize}
 
-
+\subsection{CLion}
 LLLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama. Postoji i eksperemintalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi. \\
 \indent Da bi omogućili korišćenje lldb potrebno je u podešavanjima za dati projekat odabrati postojeći lldb debager. 
 Ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.
+
+\subsection{Xcode 5}
+Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM kompajlerima. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
 
 
 % Mladenov deo
