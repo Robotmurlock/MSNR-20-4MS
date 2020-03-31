@@ -73,7 +73,7 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLVM debagerom. Predstavljena su poređenja LLVM debagera sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLVM debager pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
+Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Predstavljena su poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
 
 
 % Milosev deo
@@ -147,7 +147,7 @@ Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje.Unutrašnje pre
 \label{subsec:Debager}
 
 Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje rada i proveru ispravnosti drugih programa. Debugeri daju napredne funkcije kao što su pokretanje programa korak po korak (single-stepping), praćenje vrednosti promenjivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora, zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida (breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.\\
-\indent Većina popularnih debugera daje samo jednostavno komandno-linijsko okruženje(command-line interface - CLI), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (GUI) debugera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debugeri pružaju i mogućnosti obrnutog debagovanja(debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa(Step Beckward). Jedan od debugera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju VisualStudio. Debagovanje unazad je jako korisno i sve se više koriste debugeri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovnja pa čak i do dva puta. Debugeri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debugeri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisnika da pristupa memoriji za koju nema dozvolu i slično.\cite{ssq_debug_def}
+\indent Većina popularnih debugera daje samo jednostavno komandno-linijsko okruženje (command-line interface - CLI), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (GUI) debugera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debugeri pružaju i mogućnosti obrnutog debagovanja(debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa(Step Beckward). Jedan od debugera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju VisualStudio. Debagovanje unazad je jako korisno i sve se više koriste debugeri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovnja pa čak i do dva puta. Debugeri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debugeri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisnika da pristupa memoriji za koju nema dozvolu i slično.\cite{ssq_debug_def}
 
 \subsection{Lista debagera}
 \label{sec:Lista debagera}
@@ -264,7 +264,7 @@ korisne početnicima u korišćenju ovog alata.
 % Marov deo
 \section{Gde se on koristi i za koje jezike? }
 \label{sec: Gde se on koristi i za koje jezike?}
-LLVM debager se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
+LLDB se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
 Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Komplentnost skupa funkcionalnosti varira od platforme do platforme.
 \begin{itemize}
 \item FreeBSD - zaostaje za Linux-om, ali brzo napreduje.
@@ -272,12 +272,12 @@ Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Ko
 \item macOS - LLDB je sistemski debager na macOS, iOS, tvOS, i watchOS za x86, i386, ARM, i AArch64 debagovanje. Na ovoj platformi ima najbogatiji skup funkcionalnosti koje implementira.
 \item Windows - I dalje u razvojnoj fazi, ali već koristan za i386 programe.
 \end{itemize}
-Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama što se može videti iz tabele ~\ref{table:1}.
+Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama što se može videti iz tabele ~\ref{tab:table lldb features}.
 
 \begin{table}[h!]
 \center
 \caption{Funkcionalosti LLDB na najpopularnijim platformama}
-\label{table:1}
+\label{tab:table lldb features}
 \begin{tabular}{|c|c c c|} 
  \hline
  Feature & Linux & macOS & Windows \\ [0.5ex] 
@@ -307,7 +307,7 @@ LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje
 U daljem tekstu je dat opis načina instalacije na svakom od gore navedenih okruženja i kratak opis koje funkcionalnosti LLDB debagera podržavaju. Za detalje i detaljna upustva pogledati zvanične veb stranice ovih razvojnih okruženja.
 
 \subsection{Visual Studio Code}
-Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
+Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma\cite{visual_code_plugin}. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
 Podržava:
 \begin{itemize}
 \item Debagovanje na Linux (x64 or ARM), macOS i Windows,
@@ -319,7 +319,7 @@ Podržava:
 \item Podrška za Rust programski jezik sa vizuelizacijama za vektor, string i liste
 \end{itemize}
 \subsection{Eclipse}
-U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka koji integrše postojeći lldb na sistemu sa eclipse razvojnim okruženjem. Radi na svim platformama koje podržava lldb i eclipse. Za razliku od VCS ima nekoliko ograničenja:
+U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka\cite{eclipse_plugin} koji integrše postojeći lldb na sistemu sa eclipse razvojnim okruženjem. Radi na svim platformama koje podržava lldb i eclipse. Za razliku od VCS ima nekoliko ograničenja:
 
 \begin{itemize}
 \item Debagovanje sa drugog računara nije moguće
@@ -332,9 +332,10 @@ Modules view se ne popuni
 \end{itemize}
 
 \subsection{CLion}
-LLLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama. Postoji i eksperemintalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi. \\
+LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama\cite{clion_lldb}. Postoji i eksperemintalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi. \\
 \indent Da bi omogućili korišćenje lldb potrebno je u podešavanjima za dati projekat odabrati postojeći lldb debager. 
 Ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.
+Dostupne funkcionalnosti variraiju od platforme kao što se može videti u tabeli \ref{tab:table lldb features}.
 
 \subsection{Xcode 5}
 Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM kompajlerima. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
