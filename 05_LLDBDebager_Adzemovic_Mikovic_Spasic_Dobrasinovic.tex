@@ -272,12 +272,39 @@ Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Ko
 \item macOS - LLDB je sistemski debager na macOS, iOS, tvOS, i watchOS za x86, i386, ARM, i AArch64 debagovanje. Na ovoj platformi ima najbogatiji skup funkcionalnosti koje implementira.
 \item Windows - I dalje u razvojnoj fazi, ali već koristan za i386 programe.
 \end{itemize}
-Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama.
+Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama što se može videti iz tabele ~\ref{table:1}.
+
+\begin{table}[h!]
+\center
+\caption{Funkcionalosti LLDB na najpopularnijim platformama}
+\label{table:1}
+\begin{tabular}{|c|c c c|} 
+ \hline
+ Feature & Linux & macOS & Windows \\ [0.5ex] 
+ \hline
+ Backtracking & Yes & Yes & Yes \\ 
+ Breakpoints & Yes & Yes & Yes \\
+ C++11 & Yes & Yes & Unkown \\
+ Commandline tool & Yes & Yes & Yes \\
+ Core file debugging  & Yes & Yes & Yes \\
+  Remote debugging & Yes & Yes & No\\ [1ex] 
+ Disassembly & Yes & Yes & Yes  \\
+ Expression evaluation & Yes (Known problems)& Yes & Yes (known issues) \\
+ JIT debugging & Symbolic debugging only & Untested & No \\
+ Objective C & N/A & Yes & N/A \\
+ \hline
+\end{tabular}
+\end{table}
+
+Korisnici Windows platformi obično preferiraju alate napravljene od strane Microsoft-a jer su najbolje integrisani sa Windows-om i imaju najbolju podršku na tom operativnom sistemu.
+
+Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Apple-a. Na Linux-u je izbor između LLDB i nekog drugog popularnog debagera, kao što je na primer GDB, stvar preferenci programera jer oba debagera implementiraju sve najčešće korišćene funkcionalnosti i imaju sličan interfejs za korišćenje.
 
 \section{Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 \label{subsec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 
-LLDB se može koristiti u Visual Studio Code, Eclipse, CLion, Xcode 5 gde je i podrazumevani debager. 
+LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od najpopularnijih razvojnih okruženja koja imaju mogućnost integracije LLDB su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Apple održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u XCode 5 razvojonom okruženju. 
+U daljem tekstu je dat opis načina instalacije na svakom od gore navedenih okruženja i kratak opis koje funkcionalnosti LLDB debagera podržavaju. Za detalje i detaljna upustva pogledati zvanične veb stranice ovih razvojnih okruženja.
 
 \subsection{Visual Studio Code}
 Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
