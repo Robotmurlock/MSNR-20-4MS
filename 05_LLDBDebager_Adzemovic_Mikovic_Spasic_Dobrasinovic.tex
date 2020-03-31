@@ -333,7 +333,24 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 \subsection{Poređenje: GDB i LLDB}
 \label{subsec: GDB i LLDB}
 
-Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Način korišćenje ova dva debagera je veoma sličan i skup komandi se većinom poklapa. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Novije verzije GDB podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS.
+Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB. \cite {lldb_to_gdb_map} Primer:
+
+\begin{center}
+	\begin{tabular}{c | c | c}
+		 & GBD & LLDB \\ 
+		\hline
+		Pokretanje procesa: & gdb run & lldb run \\ 
+		\hline 
+		Postavljanje argumenata: & gbd set args <args>
+		 & lldb settings set target.run-args <args> \\
+		 \hline
+		sledeci korak: & gdb step & lldb step \\
+		\hline
+		izlazak iz grejma & gdb finish & lldb finish
+	\end{tabular}
+\end{center}
+
+\indent Ova tabela predstavlja uzorak iz mape preslikavanja. Vidi se je način korišćenje ova dva debagera je veoma sličan i skup komandi se većinom poklapa. 
 
 \subsection{Visual Studio Debugger i LLDB}
 \label{subsec: Visual Studio Debugger i LLDB}
