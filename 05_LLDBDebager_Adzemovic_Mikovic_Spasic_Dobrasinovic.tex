@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}
+\usepackage[table]{xcolor}
 
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
@@ -357,20 +358,38 @@ Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
 
-Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za C++ u zavisnosti od operativnog sistema na kojem je instaliran \cite{vsc_support}:
+Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za programski jezik C++. Na sledećoj listi se mogu videti debageri za C++ koji mogu koristiti u okviru Visual Studio Code u zavisnosti od toga koji se operativni sistem koristi: \cite{vsc_support}:
 \begin{itemize}
 	\item \textbf{Linux}: GDB
 	\item \textbf{macOS}: LLDB or GDB
 	\item \textbf{Windows}: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{table}[ht!]
 	\begin{center}
-		\includegraphics[width=100mm,height=50mm]{Slike/tabela_poredjenje1.png}
+		\caption{LLDB, GDB, Visual Studio Debugger \cite{gdb}\cite{lldb}\cite{vsd}}
+		\label{table:tabela_poredjenje}
+		\begin{footnotesize}
+			\begin{tabular}{| c | c | c | c |}
+				\hline
+				& \cellcolor{red!60}GBD & \cellcolor{red!60}LLDB & \cellcolor{red!60}Visual Studio Debugger \\ 
+				\hline
+				\cellcolor{orange!60}Podrška za& \cellcolor{yellow!60}C, C++, & \cellcolor{yellow!60}C, C++, Objective C & \cellcolor{yellow!60}C\#, C++, Visual \\ 
+				\cellcolor{orange!60}programske jezike & \cellcolor{yellow!60}Objective C & \cellcolor{yellow!60}Java, Fortran etc. & \cellcolor{yellow!60}Basic, JavaScript etc. \\ 
+				\hline 
+				\cellcolor{orange!60}Implementacija & \cellcolor{yellow!60}C++ & \cellcolor{yellow!60}C & \cellcolor{yellow!60}C++/C\# \\
+				\hline
+				\cellcolor{orange!60}Podrška za& \cellcolor{yellow!60}Unix, Windows,& \cellcolor{yellow!60}Unix, Windows,& \cellcolor{yellow!60}Windows\\
+				\cellcolor{orange!60}operativne sisteme & \cellcolor{yellow!60}MacOS & \cellcolor{yellow!60}MacOS & \cellcolor{yellow!60}\\
+				\hline
+				\cellcolor{orange!60}Razvojni tim & \cellcolor{yellow!60}LLVM developer group & \cellcolor{yellow!60}GNU Project & \cellcolor{yellow!60}Microsoft \\
+				\hline
+				\cellcolor{orange!60}Korisnički interfejs & \cellcolor{yellow!60}TUI & \cellcolor{yellow!60}TUI & \cellcolor{yellow!60}GUI\\
+				\hline
+			\end{tabular}
+		\end{footnotesize}
 	\end{center}
-	\caption{LLDB, GDB, Visual Studio Debugger \cite{gdb}\cite{lldb}\cite{vsd}}
-	\label{fig:tabela_poredjenje1}
-\end{figure}
+\end{table}
 
 \subsection{Poređenje: GDB i LLDB}
 \label{subsec: GDB i LLDB}
@@ -399,7 +418,6 @@ Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{
 
 
 Visual studio debugger je takođe jedan od poznatijih debagera koji se može uporediti sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički „point-and-click“ korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
-
 \section{Zaključak}
 \label{sec:zakljucak}
 
