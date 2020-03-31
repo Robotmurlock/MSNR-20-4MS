@@ -110,6 +110,15 @@ Zato se često termini propust i greška koriste u širem kontekstu razvoja a te
 \end{enumerate}
 \indent Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim gradjenjem koda. Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju. \cite{bagovi_smalkov}
 
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=100mm,height=50mm]{Slike/bagovi.png}
+	\end{center}
+	\caption{Glavni razlozi najtežih bagova\cite{study_bugs}}
+	\label{fig:bagovi}
+\end{figure}
+
+Sa slike (\ref{fig:bagovi}) vidimo da su nejčešći razlozi za teške bragove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
 
 \subsection{Metode debagovanja}
 \label{subsec:podnaslov2}
@@ -366,16 +375,16 @@ Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{
 
 \begin{center}
 	\begin{tabular}{c | c | c}
-		 & GBD & LLDB \\ 
+		& GBD & LLDB \\ 
 		\hline
-		Pokretanje procesa: & gdb run & lldb run \\ 
+		Pokretanje procesa: & run & run \\ 
 		\hline 
-		Postavljanje argumenata: & gbd set args <args>
-		 & lldb settings set target.run-args <args> \\
-		 \hline
-		sledeci korak: & gdb step & lldb step \\
+		Postavljanje argumenata: &set args <args>
+		& settings set target.run-args <args> \\
 		\hline
-		izlazak iz grejma & gdb finish & lldb finish
+		sledeci korak: & step & step \\
+		\hline
+		izlazak iz grejma & finish & finish
 	\end{tabular}
 \end{center}
 
@@ -384,7 +393,11 @@ Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{
 \subsection{Visual Studio Debugger i LLDB}
 \label{subsec: Visual Studio Debugger i LLDB}
 
+<<<<<<< HEAD
 Visual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
+=======
+Visual studio debugger je takođe jedan od poznatijih debagera koji se može uporediti sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički „point-and-click“ korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
+>>>>>>> c7b84072c8a664be9d637737dd30a345e2fae43c
 
 \section{Zaključak}
 \label{sec:zakljucak}
