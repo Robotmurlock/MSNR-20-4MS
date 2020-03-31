@@ -64,6 +64,7 @@
 
 \abstract{
 Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i naučnog rada. Ovo je dobra prilika da podelimo sa kolegama naša znanja koja smo stekli ovim istraživanjem koje ima velike primene u praksi. Rad većinom pokriva interesatne informacije o debageru LLDB kao jednom od produžetaka LLVM-a, način korišćenja LLDB i poređenje sa ostalim debagerima.  
+
 }
 
 \tableofcontents
@@ -73,7 +74,8 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Predstavljena su poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. Za one koji preferiraiju rad u integrisanom razvojonom okruženju poglavlje \ref{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
+U vreme pisanja ovog rada broj dostupnih debagera za najpopularnije programske jezike meri se u desetinama. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Za programske jezike C, C++, Objective-C najpopularniji izbori su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
+Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Za one kojima više odgovara rad u integrisanom razvojnom okruženju poglavlje \ref{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?} daje pregled popularnih razvojnih okruženja i na koji način integrišu LLDB. Na kraju, predstavljena su poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
 
 
 % Milosev deo
@@ -81,7 +83,7 @@ Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovan
 \label{sec:sta je debagovanje}
 
 Debagovanje je proces identifikacije pravog problema i njegovo ispravljanje.
-“Debagovanje je duplo teže od kodiranja, ako napisete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.( Brian w. Keringhan) \cite{debagovanje_vladaf}\\
+“Debagovanje je duplo teže od kodiranja, ako napišete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.( Brian w. Keringhan) \cite{debagovanje_vladaf}\\
 Koraci pri debagovanju\cite{bagovi_smalkov}:
 \begin{enumerate}
 \item uočavanje da postoji greška
@@ -90,7 +92,6 @@ Koraci pri debagovanju\cite{bagovi_smalkov}:
 \item ispravljanje greške
 \end{enumerate}
 Često je najteži deo ispravno razumevanje i rano otkrivanje greške, kada se greška locira, ispravljanje najčešće nije veliki problem.
-
 
 
 \subsection{Bagovi uopšteno}
@@ -174,7 +175,7 @@ Mejnfrejm debugeri\cite{ll_best_debuggers}\cite{up_best_debuggers}:
 \section{Upoznavanje sa LLDB-om}
 LLDB podržava standardne funkcije debagovanja preko komandne linije i može se
 koristiti kao debager u interaktivnom razvojnom okruženju. Konkretno, sa
-debagerom pokrenutim nad programom prevedenim sa debug opcijama omogućava
+debagerom pokrenutim nad programom prevedenim sa debag opcijama omogućava
 se \cite{lldb_to_gdb_map}:
 
 \begin{itemize}
@@ -383,14 +384,13 @@ Debuger GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{
 \subsection{Visual Studio Debugger i LLDB}
 \label{subsec: Visual Studio Debugger i LLDB}
 
-VIsual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
+Visual studio debugger je takođe jedan od poznatijih debagera koji možemo da upoređujemo sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički point-and-click korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
 
 \section{Zaključak}
 \label{sec:zakljucak}
 
-
-
-
+Debagovanje je svakodnevnica svakog programera i dobar debager kao što je LLDB može značajno smanjiti vreme provedeno u debagovanju ostavaljući više vremena za razvoj. 
+Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojim okruženjem i ne zahteva nikakva dodatna podešavanja ili kao dodatak u Visual Studio Code. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moće da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa XCode5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi. 
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{seminarski} 
