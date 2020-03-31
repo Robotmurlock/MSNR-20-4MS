@@ -15,6 +15,8 @@
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
 
 \usepackage{listings}
+\renewcommand\lstlistingname{Kod}
+\renewcommand\lstlistlistingname{Kodovi}
 
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
@@ -153,6 +155,13 @@ Sa slike (\ref{fig:bagovi}) vidimo da su nejčešći razlozi za teške bragove u
 
 Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje.Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki(asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda... Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije\cite{bagovi_smalkov}.
 
+\begin{lstlisting}[language=C,caption=Primer korišćenja assert komande]
+void example(int* ptr) {
+assert (ptr != NULL);
+printf ("%d\n",(ptr));
+}
+\end{lstlisting}
+
 \subsection{Debager}
 \label{subsec:Debager}
 
@@ -165,19 +174,12 @@ Debager je računarski program koji se koristi za uklanjanje grešaka, testiranj
 Najčešće korišćeni debugeri\cite{ll_best_debuggers}\cite{up_best_debuggers}:
 \begin{enumerate}
 	\item GDB(gnu debuger)
-	\item Firefox javascript 
+	\item DDD 
 	\item Lldb
-	\item IntelliTrace
-	\item Windbg
 	\item Valgrind
-	\item Watcom
-\end{enumerate}
-Mejnfrejm debugeri\cite{ll_best_debuggers}\cite{up_best_debuggers}:
-\begin{enumerate}
-	\item XPEDITER
-	\item z/XDC
-	\item IBM Oliver
-	\item CA/EZTEST
+	\item Nemiver
+	\item Electric Fence
+	\item Dbx
 \end{enumerate}
 
 % Mladenov deo
