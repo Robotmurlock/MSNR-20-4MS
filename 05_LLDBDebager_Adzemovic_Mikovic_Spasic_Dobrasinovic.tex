@@ -79,7 +79,7 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-U vreme pisanja ovog rada broj dostupnih debagera za najpopularnije programske jezike meri se u desetinama. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Za programske jezike C, C++, Objective-C najpopularniji izbori su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
+U vreme pisanja ovog rada dostupno mnoštvo debagera za jezike C, C++, i Objective-C. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Najpopularniji izbori debagera za ove programske jezike su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
 Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Za one kojima više odgovara rad u integrisanom razvojnom okruženju poglavlje \ref{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?} daje pregled popularnih razvojnih okruženja i na koji način integrišu LLDB. Na kraju, predstavljena su poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
 
 
@@ -107,7 +107,7 @@ Koraci pri debagovanju \cite{bagovi_smalkov}:
 \subsection{Bagovi uopšteno}
 \label{subsec:podnaslov1}
 
-Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja, kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu\ldots Zato se često termini propust i greška koriste u širem kontekstu razvoja a termin bag u užem i vezan je za propuste u programiranju.
+Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja, kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu. Zato se često termini propust i greška koriste u širem kontekstu razvoja, a termin bag u užem i vezan je za propuste u programiranju.
 
 Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
 \begin{enumerate}
@@ -133,7 +133,7 @@ Sa slike \ref{fig:bagovi} vidimo da je najčešći razlog za teške bagove uprav
 
 \subsection{Metode debagovanja}
 \label{subsec:podnaslov2}
-
+Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju procesu debagovanja koda. U zavisnosti od težine problema, iskustva programera i alata koji mu stoje na raspolaganju metodi debagovanja se mogu grubo podeliti na:
 \begin{enumerate}
 \item \textbf{Neformalno debagovanje}: Neformalno debagovanje predstavlja jednostavan i površan pristup i čine ga dva koraka.
   \begin{enumerate}
@@ -161,7 +161,9 @@ Sa slike \ref{fig:bagovi} vidimo da je najčešći razlog za teške bagove uprav
 \subsection{Tehnike za prevenciju bagova}
 \label{subsec:Tehnike za prevenciju bagova}
 
-Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda\ldots Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.  \\
+Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda. Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.  
+
+Jedan od primera unutršnje prevencije bi bilo korišćenje assert naredbi kao u primeru Kod 1. Dereferenciranje NULL pokazivač je nedefinsano ponašanje. To znači da kompajler ima slobodu da uradi bilo šta. Ovakvi bagovi se ne moraju nužno ispoljiti kao momentalno pucanje programa i teško ih je pronaći u velikim projektima. Assert nardeba osigurava da se program momentalno zaustaviti u slučaju da uđe u nedefinisano stanje i obavestiti korisnika (programera) gde je tačno došlo do greške. Ovo pomaže u ranom uočvanju i lociranju potencionalnog baga što dalje pomaže u njegovom otklanjanju.\\
 
 \begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe]
 void example(int* ptr) {
@@ -176,10 +178,9 @@ printf ("%d\n", (*ptr));
 
 Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje rada i proveru ispravnosti drugih programa. Debageri daju napredne funkcije kao što su pokretanje programa korak po korak (eng. single-stepping), praćenje vrednosti promenljivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora, zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida (eng. breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.
 
-Većina popularnih debagera daje samo jednostavno okruženje komandne linije (eng. command-line interface), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (eng. graphical user interface) debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju Visual Studio. Debagovanje unazad je jako korisno i sve se više koriste debageri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovanja pa čak i do dva puta. Debageri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika, ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debageri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisniku da pristupa memoriji za koju nema dozvolu i slično \cite{ssq_debug_def}.
+Većina popularnih debagera daje samo jednostavno okruženje komandne linije (eng. command-line interface), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (eng. graphical user interface) debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju Visual Studio. 
 
-\subsection{Lista debagera}
-\label{sec:Lista debagera}
+Debagovanje unazad je jako korisno i sve se više koriste debageri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovanja pa čak i do dva puta. Debageri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika, ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debageri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisniku da pristupa memoriji za koju nema dozvolu i slično \cite{ssq_debug_def}.
 
 Najčešće korišćeni debageri za  C, C++, Objective-C\cite{ll_best_debuggers}\cite{up_best_debuggers}:
 \begin{enumerate}
@@ -272,7 +273,7 @@ U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skra
 \section{Gde se on koristi i za koje jezike? }
 \label{sec: Gde se on koristi i za koje jezike?}
 LLDB se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
-Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Kompletnost skupa funkcionalnosti varira od platforme do platforme.
+Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Kompletnost skupa funkcionalnosti varira od platforme do platforme\cite{lldb_status}:
 \begin{itemize}
 \item FreeBSD - zaostaje za Linux-om, ali brzo napreduje.
 \item Linux - Približava se kompletnosti funkcionalnosti za debagovanje x86-64, i386, ARM, AArch64, IBM POWER (ppc64), IBM Z (s390x=, i MIPS64 programa.
