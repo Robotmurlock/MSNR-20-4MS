@@ -387,20 +387,25 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 
 Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB-a podržavaju macOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za macOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Primer:
 
-\begin{center}
-  \begin{tabular}{c | c | c}
-    & GBD & LLDB \\ 
-    \hline
-    Pokretanje procesa: & run & run \\ 
-    \hline 
-    Postavljanje argumenata: &set args <args>
-    & settings set target.run-args <args> \\
-    \hline
-    Sledeći korak: & step & step \\
-    \hline
-    Izlazak iz frejma: & finish & finish
-  \end{tabular}
-\end{center}
+\begin{table}
+	\begin{center}
+	  \caption{Upoređivanje komandi LLDB-a i GDB-a} 
+	  \begin{tabular}{| c | c | c |}
+	  	\hline
+	    & \cellcolor{red!60}GBD & \cellcolor{red!60}LLDB \\ 
+	    \hline
+	    \cellcolor{orange!60}Pokretanje procesa: & \cellcolor{yellow!60}run & \cellcolor{yellow!60}run \\ 
+	    \hline 
+	    \cellcolor{orange!60}Postavljanje argumenata: & \cellcolor{yellow!60}set args <args>
+	    & \cellcolor{yellow!60}settings set target.run-args <args> \\
+	    \hline
+	    \cellcolor{orange!60}Sledeći korak: & \cellcolor{yellow!60}step & \cellcolor{yellow!60}step \\
+	    \hline
+	    \cellcolor{orange!60}Izlazak iz frejma: & \cellcolor{yellow!60}finish & \cellcolor{yellow!60}finish\\
+	    \hline
+	  \end{tabular}
+	\end{center}
+\end{table}
 
 \indent Ova tabela predstavlja uzorak iz mape preslikavanja. Vidi se da je način korišćenja ova dva debagera veoma sličan i skup komandi se većinom poklapa. 
 
