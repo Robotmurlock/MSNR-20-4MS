@@ -129,7 +129,7 @@ Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanje
 	\label{fig:bagovi}
 \end{figure}
 
-Sa slike \ref{fig:bagovi} vidimo da je najčešći razlog za teške bagove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
+Sa slike (\ref{fig:bagovi}) vidimo da je najčešći razlog za teške bagove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
 
 \subsection{Metode debagovanja}
 \label{subsec:podnaslov2}
@@ -240,7 +240,7 @@ LLDB interfejs komandne linije se aktivira pozivom \verb|lldb| komandne linije (
 		\end{verbatim}
 	\end{footnotesize}
 \end{primer}
-U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skraćenice (eng. alias) za komande koje mogu odstupati od ovog oblika. Upravo zato što je ovaj format komandi jako struktuisan mogu biti pogodni skraćeni oblici komandi koji su sličniji onome što je poznato korisnicima drugih debagera \cite{apple_lldb_comms}. LLDB daje korisnicima više načina da sami definišu komande debagera (najjednostavnija od opcija je komanda \verb|command alias|, koja omogućava jednostavno definisanje sopstvenih skraćenica) \cite{book}. U tabeli \ref{tab:tabela3} su date neke od osnovnih komandi kao primer korišćenja interfejsa i reprezentativni prikaz širokog skupa mogućnosti LLDB-a koji nije naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i \verb|apropos|, koje mogu biti korisne početnicima u korišćenju ovog alata.
+U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skraćenice (eng. alias) za komande koje mogu odstupati od ovog oblika. Upravo zato što je ovaj format komandi jako struktuisan mogu biti pogodni skraćeni oblici komandi koji su sličniji onome što je poznato korisnicima drugih debagera \cite{apple_lldb_comms}. LLDB daje korisnicima više načina da sami definišu komande debagera (najjednostavnija od opcija je komanda \verb|command alias|, koja omogućava jednostavno definisanje sopstvenih skraćenica) \cite{book}. U tabeli (\ref{tab:tabela3}) su date neke od osnovnih komandi kao primer korišćenja interfejsa i reprezentativni prikaz širokog skupa mogućnosti LLDB-a koji nije naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i \verb|apropos|, koje mogu biti korisne početnicima u korišćenju ovog alata.
 
 \begin{table}[h!]
 	\begin{center}
@@ -280,7 +280,7 @@ Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Ko
 \item macOS - LLDB je sistemski debager na macOS, iOS, tvOS, i watchOS za x86, i386, ARM, i AArch64 debagovanje. Na ovoj platformi ima najbogatiji skup funkcionalnosti koje implementira.
 \item Windows - I dalje u razvojnoj fazi, ali već koristan za i386 programe.
 \end{itemize}
-Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama što se može videti iz tabele \ref{tab:table lldb features} \cite{lldb_status}.
+Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude kompletan na svim platformama. Najbolja i najpotpunija podrška je trenutno na Linux i macOS platformama što se može videti iz tabele (\ref{tab:table lldb features}) \cite{lldb_status}.
 
 \begin{table}[h!]
 \center
@@ -342,7 +342,7 @@ U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse 
 \subsection*{CLion}
 LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama \cite{clion_lldb}. Postoji i eksperimentalna verzija LLDB baziranog debagera za MSVC razvojne alate na Windows platformi.
 
-Da bi omogućili korišćenje LLDB-a potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager.  CLion ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.  Dostupne funkcionalnosti variraju od platforme do platforme kao što se može videti u tabeli \ref{tab:table lldb features}.
+Da bi omogućili korišćenje LLDB-a potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager.  CLion ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.  Dostupne funkcionalnosti variraju od platforme do platforme kao što se može videti u tabeli (\ref{tab:table lldb features}).
 
 \subsection*{Xcode 5}
 Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
@@ -350,7 +350,7 @@ Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
 
-Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i od samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za programski jezik C++. Na sledećoj listi se mogu videti debageri za C++ koji se mogu koristiti u okviru Visual Studio Code-a u zavisnosti od toga koji se operativni sistem koristi \cite{vsc_support}:
+Potrebno je naglasiti da pri poređenju različitih debagera ne može se objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i od samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za programski jezik C++. Na sledećoj listi se mogu videti debageri za C++ koji se mogu koristiti u okviru Visual Studio Code-a u zavisnosti od toga koji se operativni sistem koristi \cite{vsc_support}:
 \begin{itemize}
 	\item \textbf{Linux}: GDB.
 	\item \textbf{macOS}: LLDB or GDB.
@@ -424,7 +424,7 @@ Debagovanje je svakodnevnica svakog programera i dobar debager kao što je LLDB 
 
 LLDB je podrazumevani debager u XCode5 tako da ovde praktično nema dodatnih koraka podešavanja. Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojnim okruženjem i ne zahteva nikakva dodatna podešavanja, međutim CLion je komercijalni proizvod koji se plaća. Alternativni način koji takođe zahteva minimalno podešavanja je dodatak Visual Studio Code editoru koji pruža GUI za debagovanje LLDB-om. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moći da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa Xcode 5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi.
  
-Uzimajući u obzir da svaka promena svakodnevnih navika, pa i onih koji se tiču jednog alata koji se koristi svaki dan kao što je debager, LLDB je vredan inicijalnog truda koji treba uložiti da bi se zamenio predhodno korišćeni debager, a ako je LLDB prvi debager sa kojim se programer susretne tim bolje.
+Uzimajući u obzir da svaka promena svakodnevnih navika, pa i onih koji se tiču jednog alata koji se koristi svaki dan kao što je debager, LLDB je vredan inicijalnog truda koji treba uložiti da bi se zamenio prethodno korišćeni debager, a ako je LLDB prvi debager sa kojim se programer susretne tim bolje.
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{seminarski} 
