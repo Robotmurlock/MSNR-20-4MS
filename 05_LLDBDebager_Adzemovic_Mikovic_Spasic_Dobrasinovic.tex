@@ -166,12 +166,11 @@ Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje pr
 Jedan od primera unutrašnje prevencije bi bilo korišćenje assert naredbi kao u primeru koda (\ref{code:kod1}). Dereferenciranje NULL pokazivača je nedefinisano ponašanje. To znači da kompajler ima slobodu da uradi bilo šta. Ovakvi bagovi se ne moraju nužno ispoljiti kao momentalno pucanje programa i teško ih je pronaći u velikim projektima. Naredba „assert” osigurava da se program momentalno zaustaviti u slučaju da uđe u nedefinisano stanje i obavestiti korisnika (programera) gde je tačno došlo do greške. Ovo pomaže u ranom uočavanju i lociranju potencionalnog baga što dalje pomaže u njegovom otklanjanju.\\
 
 \begin{center}
-	\begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe, label=code:kod1]
-	void example(int* ptr) {
-	assert (ptr != NULL);
-	printf ("%d\n", (*ptr));
-	}
-	\end{lstlisting}
+\begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe, label=code:kod1]
+void example(int* ptr) {
+    assert (ptr != NULL);
+    printf ("%d\n", (*ptr));
+}\end{lstlisting}
 \end{center}
 
 
