@@ -163,7 +163,7 @@ Sa slike \ref{fig:bagovi} vidimo da je najčešći razlog za teške bagove uprav
 
 Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda\ldots Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.  \\
 
-\begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe.]
+\begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe]
 void example(int* ptr) {
 assert (ptr != NULL);
 printf ("%d\n", (*ptr));
