@@ -406,7 +406,7 @@ U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse 
 \subsection*{CLion}
 LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama \cite{clion_lldb}. Postoji i eksperimentalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi.
 
-Da bi omogućili korišćenje lldb potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager. 
+Da bi omogućili korišćenje LLDB potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager. 
 Ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.
 Dostupne funkcionalnosti variraju od platforme kao što se može videti u tabeli \ref{tab:table lldb features}.
 
@@ -438,7 +438,7 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 				\cellcolor{orange!60}Implementacija & \cellcolor{yellow!60}C & \cellcolor{yellow!60}C++ & \cellcolor{yellow!60}C++/C\# \\
 				\hline
 				\cellcolor{orange!60}Podrška za& \cellcolor{yellow!60}Unix, Windows,& \cellcolor{yellow!60}Unix, Windows,& \cellcolor{yellow!60}Windows\\
-				\cellcolor{orange!60}operativne sisteme & \cellcolor{yellow!60}MacOS & \cellcolor{yellow!60}MacOS & \cellcolor{yellow!60}\\
+				\cellcolor{orange!60}operativne sisteme & \cellcolor{yellow!60}macOS & \cellcolor{yellow!60}macOS & \cellcolor{yellow!60}\\
 				\hline
 				\cellcolor{orange!60}Razvojni tim & \cellcolor{yellow!60}GNU Project & \cellcolor{yellow!60}LLVM developer group & \cellcolor{yellow!60}Microsoft \\
 				\hline
@@ -452,7 +452,7 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 \subsection{Poređenje: GDB i LLDB}
 \label{subsec: GDB i LLDB}
 
-Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB-a podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Primer:
+Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB-a podržavaju macOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za macOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Primer:
 
 \begin{center}
   \begin{tabular}{c | c | c}
