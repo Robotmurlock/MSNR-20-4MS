@@ -79,7 +79,7 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-U vreme pisanja ovog rada dostupno mnoštvo debagera za jezike C, C++, i Objective-C. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Najpopularniji izbori debagera za ove programske jezike su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
+U vreme pisanja ovog rada dostupno mnoštvo debagera za jezike C, C++, i Objective-C. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Najpopularniji izbori debagera za ove programske jezike su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi, niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
 Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Za one kojima više odgovara rad u integrisanom razvojnom okruženju poglavlje \ref{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?} daje pregled popularnih razvojnih okruženja i na koji način integrišu LLDB. Na kraju, predstavljena su poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
 
 
@@ -95,9 +95,9 @@ debagujete.'' (Brian W. Kernighan) \cite{debagovanje_vladaf}
 
 Koraci pri debagovanju \cite{bagovi_smalkov}:
 \begin{enumerate}
-\item Uočavanje da postoji greška.
-\item Razumevanje greške.
-\item Lociranje greške.
+\item Uočavanje da postoji greška;
+\item Razumevanje greške;
+\item Lociranje greške;
 \item Ispravljanje greške.
 \end{enumerate}
 
@@ -163,7 +163,7 @@ Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju proc
 
 Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda. Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.  
 
-Jedan od primera unutršnje prevencije bi bilo korišćenje assert naredbi kao u primeru Kod 1. Dereferenciranje NULL pokazivač je nedefinsano ponašanje. To znači da kompajler ima slobodu da uradi bilo šta. Ovakvi bagovi se ne moraju nužno ispoljiti kao momentalno pucanje programa i teško ih je pronaći u velikim projektima. Assert nardeba osigurava da se program momentalno zaustaviti u slučaju da uđe u nedefinisano stanje i obavestiti korisnika (programera) gde je tačno došlo do greške. Ovo pomaže u ranom uočvanju i lociranju potencionalnog baga što dalje pomaže u njegovom otklanjanju.\\
+Jedan od primera unutrašnje prevencije bi bilo korišćenje assert naredbi kao u primeru Kod 1. Dereferenciranje NULL pokazivača je nedefinisano ponašanje. To znači da kompajler ima slobodu da uradi bilo šta. Ovakvi bagovi se ne moraju nužno ispoljiti kao momentalno pucanje programa i teško ih je pronaći u velikim projektima. Naredba „assert” osigurava da se program momentalno zaustaviti u slučaju da uđe u nedefinisano stanje i obavestiti korisnika (programera) gde je tačno došlo do greške. Ovo pomaže u ranom uočavanju i lociranju potencionalnog baga što dalje pomaže u njegovom otklanjanju.\\
 
 \begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe]
 void example(int* ptr) {
@@ -184,13 +184,13 @@ Debagovanje unazad je jako korisno i sve se više koriste debageri koji omoguća
 
 Najčešće korišćeni debageri za  C, C++, Objective-C\cite{ll_best_debuggers}\cite{up_best_debuggers}:
 \begin{enumerate}
-	\item GDB (GNU debager),
-	\item DDD,
-	\item LLDB,
-	\item Valgrind,
-	\item Nemiver,
-	\item Electric Fence,
-	\item Dbx.
+	\item GDB (GNU debager)
+	\item DDD
+	\item LLDB
+	\item Valgrind
+	\item Nemiver
+	\item Electric Fence
+	\item Dbx
 \end{enumerate}
 
 % Mladenov deo
