@@ -90,7 +90,7 @@ Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovan
 Debagovanje je proces identifikacije pravog problema i njegovo ispravljanje.
 ,,Debagovanje je duplo teže od kodiranja, ako napišete kod na najlukaviji
 (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga
-debagujete.'' (Brian w. Kernighan) \cite{debagovanje_vladaf}
+debagujete.'' (Brian W. Kernighan) \cite{debagovanje_vladaf}
 
 
 Koraci pri debagovanju \cite{bagovi_smalkov}:
@@ -107,12 +107,7 @@ Koraci pri debagovanju \cite{bagovi_smalkov}:
 \subsection{Bagovi uopšteno}
 \label{subsec:podnaslov1}
 
-Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u
-programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na
-bilo koju vrstu problema u bilo kojoj fazi procesa razvoja kao što su greške u
-projektovanju, planiranju, arhitekturi, dizajnu\ldots Zato se često termini
-propust i greška koriste u širem kontekstu razvoja a termin bag u užem i vezan
-je za propuste u programiranju.
+Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja, kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu\ldots Zato se često termini propust i greška koriste u širem kontekstu razvoja a termin bag u užem i vezan je za propuste u programiranju.
 
 Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
 \begin{enumerate}
@@ -124,7 +119,7 @@ Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
 \end{enumerate}
 
 
-Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju \cite{bagovi_smalkov}.
+Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Neke od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju \cite{bagovi_smalkov}.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -134,62 +129,39 @@ Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanje
 	\label{fig:bagovi}
 \end{figure}
 
-Sa slike \ref{fig:bagovi} vidimo da su najčešći razlozi za teške bagove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
+Sa slike \ref{fig:bagovi} vidimo da je najčešći razlog za teške bagove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
 
 \subsection{Metode debagovanja}
 \label{subsec:podnaslov2}
 
 \begin{enumerate}
-	\item \textbf{Neformalno debagovanje}: Neformalno debagovanje predstavlja jednostavan i površan pristup i čine ga dva koraka.
-	\begin{enumerate}
-		\item Pokušati sa nekom jednostavnom popravkom;
-		\item Ponavljati korak (a) dok se problem ne reši.
-	\end{enumerate}
-	Ovaj metod se ne preporučuje u praksi i često može da proizvede nove
-        probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni
-        da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod
-        se može oprezno koristiti jer dovodi do brzog rešenja problema \cite{bagovi_smalkov}.
-	
-	\item \textbf{Empirijski naučni metod}:
-	Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
-	Čine ga sledeći koraci:
-	\begin{enumerate}
-		\item Posmatrati uočen problem;
-		\item Postaviti hipoteze o uzroku problema;
-		\item Na osnovu hipoteza napraviti predviđanje ponašanja;
-		\item Eksperimentalno proveriti ispravnost predviđanja;
-		\item Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje.
-	\end{enumerate}
-	\indent Uopšteno gledano ovo je najbolji pristup debagovanju. Često je
-        jako zahtevan i oduzima dosta vremena ali je sa druge strane je temeljan
-        i koncizan \cite{bagovi_smalkov}.
-	
-	
-	\item \textbf{Heurističko debagovanje}:
-	Ova vrsta debagovanja podrazumeva postojanje heuristike (skup pravila)
-        koja olakšava brže i efikasnije pronalaženje grešaka. Često se za
-        određene skupove problema prave različite heuristike, koje se testiraju
-        u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta
-        bagova. Ovakve heuristike odlikuje izbegavanje pravljenja previda pri
-        posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza,
-        usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu
-        optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali
-        često su jako efikasne i daju ,,dovoljno dobra rešenja'' \cite{bagovi_smalkov}.
+\item \textbf{Neformalno debagovanje}: Neformalno debagovanje predstavlja jednostavan i površan pristup i čine ga dva koraka.
+  \begin{enumerate}
+  \item Pokušati sa nekom jednostavnom popravkom;
+  \item Ponavljati korak (a) dok se problem ne reši.
+  \end{enumerate}
+  Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema \cite{bagovi_smalkov}.
+  
+\item \textbf{Empirijski naučni metod}:
+  Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
+  Čine ga sledeći koraci:
+  \begin{enumerate}
+  \item Posmatrati uočeni problem;
+  \item Postaviti hipoteze o uzroku problema;
+  \item Na osnovu hipoteza napraviti predviđanje ponašanja;
+  \item Eksperimentalno proveriti ispravnost predviđanja;
+  \item Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje.
+  \end{enumerate}
+  \indent Uopšteno gledano, ovo je najbolji pristup debagovanju. Često je jako zahtevan i oduzima dosta vremena, ali je sa druge strane je temeljan i koncizan \cite{bagovi_smalkov}.
+  
+  
+\item \textbf{Heurističko debagovanje}: Ova vrsta debagovanja podrazumeva postojanje heuristike (skup pravila), koja olakšava brže i efikasnije pronalaženje grešaka. Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova. Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju ,,dovoljno dobra rešenja'' \cite{bagovi_smalkov}.
 \end{enumerate}
 
 \subsection{Tehnike za prevenciju bagova}
 \label{subsec:Tehnike za prevenciju bagova}
 
-Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje
-predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u
-prevenciji i otklanjanju grešaka. Neke od njih su pravljenje
-pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu,
-testiranje jedinica koda\ldots Spoljašnje tehnike i alati se koriste pri razvoju i
-ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom
-ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija
-programskog koda, alati za podršku i praćenje komunikacije, alati za
-automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.
-\\
+Tehnike za prevenciju bagova mogu biti unutrašnje i spoljašnje. Unutrašnje predstavljaju sve ono što se ugrađuje u programski kod samo radi pomoći u prevenciji i otklanjanju grešaka. Neke od njih su pravljenje pretpostavki (eng. asserts), komentarisanje značajnih odluka i mesta u kodu, testiranje jedinica koda\ldots Spoljašnje tehnike i alati se koriste pri razvoju i ne ugrađuju se nužno u programski kod, ali se koriste u čitavom razvojnom ciklusu. Neki od spoljašnjih alata su debager, alati za praćenje verzija programskog koda, alati za podršku i praćenje komunikacije, alati za automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.  \\
 
 \begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe.]
 void example(int* ptr) {
@@ -202,41 +174,21 @@ printf ("%d\n", (*ptr));
 \subsection{Debager}
 \label{subsec:Debager}
 
-Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje
-rada i proveru ispravnosti drugih programa. Debageri daju napredne funkcije kao
-što su pokretanje programa korak po korak (eng. single-stepping), praćenje vrednosti
-promenjivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora,
-zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida
-(eng. breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.
+Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje rada i proveru ispravnosti drugih programa. Debageri daju napredne funkcije kao što su pokretanje programa korak po korak (eng. single-stepping), praćenje vrednosti promenljivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora, zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida (eng. breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.
 
-Većina popularnih debagera daje samo jednostavno okruženje komandne linije
-(eng. command-line interface), često iz razloga da maksimizuju portabilnost i
-minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u
-programu preko grafičkog korisničkog okruženja (eng. graphical user interface)
-debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki
-debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje
-omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od
-debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u
-Microsoft-ovom razvojnom okruzenju Visual Studio. Debagovanje unazad je jako
-korisno i sve se više koriste debageri koji omogućavaju ovo svojstvo. Mana
-debagovanja unazad je usporavanje čitavog procesa debagovanja pa čak i do dva
-puta. Debageri mogu biti zavisni od programskog jezika, ako se mogu koristiti za
-debagovanje jednog konkretnog jezika ili mogu biti višejezični i koristiti se za
-debagovanje više programskih jezika. Neki debageri uključuju i zaštitu memorije
-kako bi izbegli prekoračenje bafera, ili onemogućili korisnika da pristupa
-memoriji za koju nema dozvolu i slično \cite{ssq_debug_def}.
+Većina popularnih debagera daje samo jednostavno okruženje komandne linije (eng. command-line interface), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (eng. graphical user interface) debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju Visual Studio. Debagovanje unazad je jako korisno i sve se više koriste debageri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovanja pa čak i do dva puta. Debageri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika, ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debageri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisniku da pristupa memoriji za koju nema dozvolu i slično \cite{ssq_debug_def}.
 
 \subsection{Lista debagera}
 \label{sec:Lista debagera}
 
 Najčešće korišćeni debageri za  C, C++, Objective-C\cite{ll_best_debuggers}\cite{up_best_debuggers}:
 \begin{enumerate}
-	\item GDB (gnu debager).
-	\item DDD. 
-	\item LLDB.
-	\item Valgrind.
-	\item Nemiver.
-	\item Electric Fence.
+	\item GDB (GNU debager),
+	\item DDD,
+	\item LLDB,
+	\item Valgrind,
+	\item Nemiver,
+	\item Electric Fence,
 	\item Dbx.
 \end{enumerate}
 
@@ -275,17 +227,10 @@ options) omogućava se \cite{lldb_to_gdb_map}:
 	\item{Izvršavanje drugih naprednih i raznih funkcija.}
 \end{itemize}
 
-LLDB omogućava korišćenje eksternih skripti za debagovanje
-preko javnog API-a za Python, izršavanje proizvoljnog Python koda unutar
-debagera \cite{lldb_python} (preko ugnježdenog interpretatora (eng. embedded
-interpreter) i omogućavanje REPL (Read-Evaluate-Print-Loop) funkcija za
-programske jezike zajedno sa mogućnostima debagovanja \cite{swift_lldb_repl}.
+LLDB omogućava korišćenje eksternih skripti za debagovanje preko javnog API-a za Python, izršavanje proizvoljnog Python koda unutar debagera \cite{lldb_python} (preko ugneždenog interpretatora [eng. embedded interpreter]) i omogućavanje REPL (Read-Evaluate-Print-Loop) funkcija za programske jezike zajedno sa mogućnostima debagovanja \cite{swift_lldb_repl}.
 
 \subsection{LLDB interfejs komandne linije}
-LLDB interfejs komandne linije se aktivira pozivom \verb|lldb| u komandnoj
-liniji (eng. shell) sa argumentom koji predstavlja program koji će biti
-debagovan. Program komandne linije \verb|lldb| se odlikuje struktuisanom
-sintaksom osnovnih komandi koja je sledećeg oblika \cite{lldb_tutorial}:
+LLDB interfejs komandne linije se aktivira pozivom \verb|lldb| komandne linije (eng. shell) sa argumentom koji predstavlja program koji će biti debagovan. Program komandne linije \verb|lldb| se odlikuje struktuisanom sintaksom osnovnih komandi koja je sledećeg oblika \cite{lldb_tutorial}:
 \begin{primer}
 	\begin{footnotesize}
 		\begin{verbatim}
@@ -294,17 +239,7 @@ sintaksom osnovnih komandi koja je sledećeg oblika \cite{lldb_tutorial}:
 		\end{verbatim}
 	\end{footnotesize}
 \end{primer}
-U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i
-skraćenice (eng. alias) za komande koje mogu odstupati od ovog oblika. Upravo
-zato što je ovaj format komandi jako struktuisan mogu biti pogodni skraćeni
-oblici komandi koji su sličniji onome što je poznato korisnicima drugih debagera
-\cite{apple_lldb_comms}. LLDB daje korisnicima više načina da sami definišu
-komande debagera (najjednostavnija od opcija je \verb|command alias|, koja
-omogućava jednostavno definisanje sopstvenih skraćenica) \cite{book}. U tabeli
-\ref{tab:tabela3} su date neke od osnovnih komandi kao primer korišćenja
-interfejsa i reprezentativni prikaz širokog skupa mogućnosti LLDB-a koji nije
-naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i
-\verb|apropos|, koje mogu biti korisne početnicima u korišćenju ovog alata.
+U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skraćenice (eng. alias) za komande koje mogu odstupati od ovog oblika. Upravo zato što je ovaj format komandi jako struktuisan mogu biti pogodni skraćeni oblici komandi koji su sličniji onome što je poznato korisnicima drugih debagera \cite{apple_lldb_comms}. LLDB daje korisnicima više načina da sami definišu komande debagera (najjednostavnija od opcija je komanda \verb|command alias|, koja omogućava jednostavno definisanje sopstvenih skraćenica) \cite{book}. U tabeli \ref{tab:tabela3} su date neke od osnovnih komandi kao primer korišćenja interfejsa i reprezentativni prikaz širokog skupa mogućnosti LLDB-a koji nije naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i \verb|apropos|, koje mogu biti korisne početnicima u korišćenju ovog alata.
 
 \begin{table}[h!]
 	\begin{center}
@@ -315,9 +250,9 @@ naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i
 			\verb|process launch -- <argumenti>|
 			& Pokreće izabrani program sa datim argumentima. \\ \hline
 			\verb|thread step-in|
-			& U trenutnoj niti nastavlja izvršavanje programa sledeće instrukcije izvornog koda, ulazeći u pozive funkcija.  \\ \hline
+			& U trenutnoj niti nastavlja izvršavanje sledeće instrukcije izvornog koda programa, ulazeći u pozive funkcija.  \\ \hline
 			\verb|thread step-inst-over|
-			& U trenutnoj niti nastavlja izvršavanje programa sledeće instrukcije izvršnog koda, ne ulazeći u pozive funkcija. \\ \hline
+			& U trenutnoj niti nastavlja izvršavanje sledeće instrukcije izvršnog koda programa, ne ulazeći u pozive funkcija. \\ \hline
 			\verb|breakpoint set --file 1.c --line 42|
 			& Postavlja breakpoint na red 42 u izvornom kodu programa 1.c. \\ \hline
 			\verb|breakpoint list|
@@ -337,7 +272,7 @@ naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i
 \section{Gde se on koristi i za koje jezike? }
 \label{sec: Gde se on koristi i za koje jezike?}
 LLDB se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
-Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Komplentnost skupa funkcionalnosti varira od platforme do platforme.
+Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Kompletnost skupa funkcionalnosti varira od platforme do platforme.
 \begin{itemize}
 \item FreeBSD - zaostaje za Linux-om, ali brzo napreduje.
 \item Linux - Približava se kompletnosti funkcionalnosti za debagovanje x86-64, i386, ARM, AArch64, IBM POWER (ppc64), IBM Z (s390x=, i MIPS64 programa.
@@ -348,7 +283,7 @@ Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude komple
 
 \begin{table}[h!]
 \center
-\caption{Funkcionalosti LLDB na najpopularnijim platformama}
+\caption{Funkcionalnosti LLDB-a na najpopularnijim platformama}
 \label{tab:table lldb features}
 \begin{tabular}{|c|c c c|} 
  \hline
@@ -370,20 +305,20 @@ Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude komple
 
 Korisnici Windows platformi obično preferiraju alate napravljene od strane Microsoft-a jer su najbolje integrisani sa Windows-om i imaju najbolju podršku na tom operativnom sistemu.
 
-Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Epla.
+Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB-u. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Epla.
 
 \section{Koja razvojna okruženja podržavaju upotrebu ovog debagera i kako?}
 \label{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 
-LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od popularnih razvojnih okruženja koja imaju mogućnost integracije LLDB su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Epl održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u XCode 5 razvojnom okruženju. 
+LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od popularnih razvojnih okruženja koja imaju mogućnost integracije LLDB-a su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Epl održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u Xcode 5 razvojnom okruženju. 
 U daljem tekstu je dat opis načina instalacije na svakom od gore navedenih okruženja i kratak opis koje funkcionalnosti LLDB debagera podržavaju. Za detaljna uputstva pogledati zvanične veb stranice ovih razvojnih okruženja.
 
 \subsection*{Visual Studio Code}
-Instalacija u Visual Studio Code (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma \cite{visual_code_plugin}. Komande LLDB se zadaju preko VCS grafičkog korisničkog interfejsa. 
+Instalacija u Visual Studio Code-u (VSC) se svodi na instaliranje dodataka sa VSC repozitorijuma \cite{visual_code_plugin}. Komande se LLDB-u zadaju preko VSC grafičkog korisničkog interfejsa. 
 Podržava:
 \begin{itemize}
 \item Debagovanje na Linux (x64 or ARM), macOS i Windows.
-\item Uslovni breakpoint-ovi, breakpoint-ovi na funkcijama, breakpoint-ovi na podacima.
+\item Uslovni breakpoint-ovi, breakpoint-ovi na funkcijama, watchpoint-ovi.
 \item Pokretanje iz internog ili eksternog terminala.
 \item Dissasembly pogled i kretanje instrukciju po instrukciju.
 \item Python skripte.
@@ -391,7 +326,7 @@ Podržava:
 \item Podrška za Rust programski jezik sa vizuelizacijama za vektor, string i liste.
 \end{itemize}
 \subsection*{Eclipse}
-U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka \cite{eclipse_plugin} koji integriše postojeći LLDB na sistemu sa Eclipse razvojnim okruženjem. Radi na svim platformama koje podržavaju LLDB i Eclipse. Za razliku od VCS ima nekoliko ograničenja:
+U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse dodataka \cite{eclipse_plugin} koji integriše postojeći LLDB na sistemu sa Eclipse razvojnim okruženjem. Radi na svim platformama koje podržavaju LLDB i Eclipse. Za razliku od VSC-a ima nekoliko ograničenja:
 
 \begin{itemize}
 \item Debagovanje sa drugog računara nije moguće.
@@ -404,11 +339,9 @@ U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse 
 \end{itemize}
 
 \subsection*{CLion}
-LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama \cite{clion_lldb}. Postoji i eksperimentalna verzija LLDB baziranog debagera sa MSVC razvojne alate na Windows platformi.
+LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS platformama \cite{clion_lldb}. Postoji i eksperimentalna verzija LLDB baziranog debagera za MSVC razvojne alate na Windows platformi.
 
-Da bi omogućili korišćenje LLDB potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager. 
-Ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.
-Dostupne funkcionalnosti variraju od platforme kao što se može videti u tabeli \ref{tab:table lldb features}.
+Da bi omogućili korišćenje LLDB-a potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager.  CLion ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.  Dostupne funkcionalnosti variraju od platforme do platforme kao što se može videti u tabeli \ref{tab:table lldb features}.
 
 \subsection*{Xcode 5}
 Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
@@ -475,12 +408,12 @@ Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{
 \label{subsec: Visual Studio Debugger i LLDB}
 
 
-Visual Studio Debugger je takođe jedan od poznatijih debagera koji se može uporediti sa LLDB-om. Prednost VSD u odnosu na LLDB je u tome što VSD nudi grafički ,,point-and-click'' korisnički interfejs, a prednost LLDB je u broju operativnih sistema koji za koju ima podršku \cite{vsd}.
+Visual Studio Debugger je takođe jedan od poznatijih debagera koji se može uporediti sa LLDB-om. Prednost VSD-a u odnosu na LLDB je u tome što VSD nudi grafički ,,point-and-click'' korisnički interfejs, a prednost LLDB je u broju operativnih sistema za koje ima podršku \cite{vsd}.
 \section{Zaključak}
 \label{sec:zakljucak}
 
-Debagovanje je svakodnevnica svakog programera i dobar debager kao što je LLDB može značajno smanjiti vreme provedeno u debagovanju ostavljajući više vremena za razvoj. 
-Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojnim okruženjem i ne zahteva nikakva dodatna podešavanja, međutim CLion je komercijalni proizvod koji se plaća. Alternativni način koji takođe zahteva minimalno podešavanja je dodataka Visual Studio Code editoru koji pruža GUI za debagovanje LLDB-om. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moći da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa XCode 5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi. 
+Debagovanje je svakodnevnica svakog programera i dobar debager kao što je LLDB može značajno smanjiti vreme provedeno u debagovanju, ostavljajući više vremena za razvoj. 
+Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojnim okruženjem i ne zahteva nikakva dodatna podešavanja, međutim CLion je komercijalni proizvod koji se plaća. Alternativni način koji takođe zahteva minimalno podešavanja je dodatak Visual Studio Code editoru koji pruža GUI za debagovanje LLDB-om. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moći da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa Xcode 5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi. 
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{seminarski} 
