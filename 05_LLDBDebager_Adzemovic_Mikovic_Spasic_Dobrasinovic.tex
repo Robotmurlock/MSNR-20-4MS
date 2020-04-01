@@ -2,7 +2,7 @@
 \documentclass[a4paper]{article}
 
 \usepackage{color}
-\usepackage{url}
+\usepackage[obeyspaces]{url}
 \usepackage[T1]{fontenc} % enable Cyrillic fonts
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
@@ -12,6 +12,8 @@
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
 
+
+\PassOptionsToPackage{obeyspaces}{url}
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
 
@@ -120,13 +122,15 @@ Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
 	\item \textbf{Slabe performanse}: stalno ili povremeno čekanje rezultata zbog lošeg odziva sistema, takvi programi su često neupotrebljivi.
 	\item \textbf{Padovi sistema i oštećenja podataka}: predstavljaju najopasniji vid bagova, mogu trajno oštetiti sistem i podatke.
 \end{enumerate}
-\indent Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju \cite{bagovi_smalkov}.
+
+
+Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Jedne od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju \cite{bagovi_smalkov}.
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=100mm,height=50mm]{Slike/bagovi.png}
 	\end{center}
-	\caption{Glavni razlozi najtežih bagova \cite{study_bugs}.}
+	\caption{Glavni razlozi najtežih bagova \cite{study_bugs}}
 	\label{fig:bagovi}
 \end{figure}
 
@@ -170,7 +174,7 @@ Sa slike \ref{fig:bagovi} vidimo da su najčešći razlozi za teške bagove upra
         posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza,
         usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu
         optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali
-        često su jako efikasne i daju ,,dovoljno dobra rešenja''\cite{bagovi_smalkov}.
+        često su jako efikasne i daju ,,dovoljno dobra rešenja'' \cite{bagovi_smalkov}.
 \end{enumerate}
 
 \subsection{Tehnike za prevenciju bagova}
@@ -187,7 +191,7 @@ programskog koda, alati za podršku i praćenje komunikacije, alati za
 automatizovanje pravljenja dokumentacije \cite{bagovi_smalkov}.
 \\
 
-\begin{lstlisting}[language=C,caption=Primer korišćenja assert naredbe]
+\begin{lstlisting}[language=C,caption=Primer upotrebe assert naredbe.]
 void example(int* ptr) {
 assert (ptr != NULL);
 printf ("%d\n", (*ptr));
@@ -304,7 +308,7 @@ naveden u potpunosti u ovom radu. Posebno se ističu komande \verb|help| i
 
 \begin{table}[h!]
 	\begin{center}
-		\caption{Upotreba interfejsa komandne linije LLDB-a \cite{lldb_to_gdb_map}\cite{lldb_tutorial}.}
+		\caption{Upotreba interfejsa komandne linije LLDB-a \cite{lldb_to_gdb_map}\cite{lldb_tutorial}}
 		\small
 		\begin{tabular}{|r|p{5cm}|}
 			\hline
@@ -412,7 +416,7 @@ Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
 
-Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i od samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za programski jezik C++. Na sledećoj listi se mogu videti debageri za C++ koji mogu koristiti u okviru Visual Studio Code u zavisnosti od toga koji se operativni sistem koristi \cite{vsc_support}:
+Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektivno odrediti koji je debager najbolji, jer to dosta zavisi od toga koji se operativni sistem koristi, a i od samih preferenci korisnika. Visual Studio Code, jedan od popularnijih editora, koristi LLDB, GDB i VSD za programski jezik C++. Na sledećoj listi se mogu videti debageri za C++ koji se mogu koristiti u okviru Visual Studio Code u zavisnosti od toga koji se operativni sistem koristi \cite{vsc_support}:
 \begin{itemize}
 	\item \textbf{Linux}: GDB.
 	\item \textbf{macOS}: LLDB or GDB.
@@ -448,21 +452,21 @@ Potrebno je naglasiti da pri poređenju različitih debagera ne možemo objektiv
 \subsection{Poređenje: GDB i LLDB}
 \label{subsec: GDB i LLDB}
 
-Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB-a podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB. \cite {lldb_to_gdb_map} Primer:
+Debager GDB predstavlja standard za GNU sisteme (ne striktno samo za GNU) \cite{gdb}. Ako se proverava kvalitet debagera LLDB, onda u potpunosti ima smisla upoređivati ga prvo sa GDB debagerom kao jednim od najpopularnijih debagera. Debager LLDB u debagovanju velikih programa pokazuje bolje performanse od GDB debagera i ima dobar korisnički interfejs \cite{lldb_project_blog}. Novije verzije GDB-a podržavaju MacOS, ali u proteklih par godina se pretežno koristio LLDB kao glavni debager za MacOS. Postoji zvaničan rečnik koji prevodi komande iz GDB u LLDB \cite {lldb_to_gdb_map}. Primer:
 
 \begin{center}
-	\begin{tabular}{c | c | c}
-		& GBD & LLDB \\ 
-		\hline
-		Pokretanje procesa: & run & run \\ 
-		\hline 
-		Postavljanje argumenata: &set args <args>
-		& settings set target.run-args <args> \\
-		\hline
-		Sledeći korak: & step & step \\
-		\hline
-		Izlazak iz frejma: & finish & finish
-	\end{tabular}
+  \begin{tabular}{c | c | c}
+    & GBD & LLDB \\ 
+    \hline
+    Pokretanje procesa: & run & run \\ 
+    \hline 
+    Postavljanje argumenata: &set args <args>
+    & settings set target.run-args <args> \\
+    \hline
+    Sledeći korak: & step & step \\
+    \hline
+    Izlazak iz frejma: & finish & finish
+  \end{tabular}
 \end{center}
 
 \indent Ova tabela predstavlja uzorak iz mape preslikavanja. Vidi se da je način korišćenja ova dva debagera veoma sličan i skup komandi se većinom poklapa. 
