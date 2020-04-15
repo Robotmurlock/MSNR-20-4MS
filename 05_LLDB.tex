@@ -1,0 +1,202 @@
+
+
+ % !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{report}
+
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8x,utf8]{inputenc} % make weird characters work
+\usepackage[serbian]{babel}
+%\usepackage[english,serbianc]{babel}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\odgovor}[1]{\textcolor{blue}{#1}}
+
+\begin{document}
+
+\title{Dopunite naslov svoga rada\\ \small{Dopunite autore rada}}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Uputstva}
+\emph{Prilikom predavanja odgovora na recenziju, obrišite ovo poglavlje.}
+
+Neophodno je odgovoriti na sve zamerke koje su navedene u okviru recenzija. Svaki odgovor pišete u okviru okruženja \verb"\odgovor", \odgovor{kako bi vaši odgovori bili lakše uočljivi.} 
+\begin{enumerate}
+
+\item Odgovor treba da sadrži na koji način ste izmenili rad da bi adresirali problem koji je recenzent naveo. Na primer, to može biti neka dodata rečenica ili dodat pasus. Ukoliko je u pitanju kraći tekst onda ga možete navesti direktno u ovom dokumentu, ukoliko je u pitanju duži tekst, onda navedete samo na kojoj strani i gde tačno se taj novi tekst nalazi. Ukoliko je izmenjeno ime nekog poglavlja, navedite na koji način je izmenjeno, i slično, u zavisnosti od izmena koje ste napravili. 
+
+\item Ukoliko ništa niste izmenili povodom neke zamerke, detaljno obrazložite zašto zahtev recenzenta nije uvažen.
+
+\item Ukoliko ste napravili i neke izmene koje recenzenti nisu tražili, njih navedite u poslednjem poglavlju tj u poglavlju Dodatne izmene.
+\end{enumerate}
+
+Za svakog recenzenta dodajte ocenu od 1 do 5 koja označava koliko vam je recenzija bila korisna, odnosno koliko vam je pomogla da unapredite rad. Ocena 1 označava da vam recenzija nije bila korisna, ocena 5 označava da vam je recenzija bila veoma korisna. 
+
+NAPOMENA: Recenzije ce biti ocenjene nezavisno od vaših ocena. Na osnovu recenzije ja znam da li je ona korisna ili ne, pa na taj način vama idu negativni poeni ukoliko kažete da je korisno nešto što nije korisno. Vašim kolegama šteti da kažete da im je recenzija korisna jer će misliti da su je dobro uradili, iako to zapravo nisu. Isto važi i na drugu stranu, tj nemojte reći da nije korisno ono što jeste korisno. Prema tome, trudite se da budete objektivni. 
+\chapter{Recenzent \odgovor{--- ocena:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+% Sam rad na početku govori o pojmu debagovanja, odnosno šta je bag, kako se otklanja i šta nam pomaže u tome. Tu se prelazi na uopštenu priču o debagerima, koja prelazi u konkretnu priču o
+% LLDB-u, ukratko kako se koristi, nad kojim jezicima, u kojim sistemima i koji mogućnosti su dostupne u određenom sistemu, koja razvojna okruženja i na koji način koriste dati debager.
+% Rad se završava kratkim upoređivanjem osnovnih prednosti i mana LLDB-a sa drugim debagerima, u ovom slučaju GDB-om i Visual Studio Debagerom.
+Rad govori o pojmu debagovanja, šta je bag, otklanjanje i alati koji nam mogu pomoći. Iz uopštene priče se prelazi na konkretnu o LLDB-u, kako se koristi, nad kojim jezicima, sistemima i mogućnosti
+koje su dostupne, koja razvojna okruženja i na koji način koriste LLDB. Rad se završava kratkim upoređivanjem sa drugim debagerima, u ovom slučaju GDB-om i Visual Studio Debagerom.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+\textbf{Bagovi uopšteno:} Citiranje se vrši samo kod poslednjeg pasusa, dok je cela sekcija izvučena sa kursa "Razvoj softvera". Sa druge strane, naredna sekcija je takođe
+čitava iz istog kursa, s tim da je za opis svakog elementa podele stavljen citat. Imamo nekonzistentnost ili manjak citata, predlog je da se u drugoj sekciji citat izvuče u opis podele,
+da se ne citira svaki od elemenata, dok u prvoj sekciji da se citira svaki od pasusa, s tim da se drugi citira pri opisu podele kao u drugoj sekciji (kao što je urađeno u trećem poglavlju
+pri nabrajanju debag opcija).
+
+\textbf{Poređenje sa drugim popularnim debagerima: } GDB podržava debagovanje na više jezika od pobrojanih, kao i  \textit{gdbgui}, ne samo TUI.
+
+\textbf{Gde se on koristi i za koje jezike (Linux):} S obzirom da reči kao što su "breakpoint"{} i "watchpoint"{} nisu prevođene niti pisane kako se izgovaraju, verujem da je bolje i Apple 
+ostaviti kako jeste radi konzistentnosti.
+Druga ideja je umesto "breakpoint"{} i "watchpoint"{} pisati tačka prekida i tačka nadgledanja, dok za Apple može da se stavi Epl (eng. Apple). Sa druge strane, ako ostanu
+"breakpoint"{} i "watchpoint" ,
+mišljenja sam da je ispravnije "breakpoint-i"{} i "watchpoint-i"{} u odnosu na "breakpoint-ovi"{} i "watchpoint-ovi".
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+\textbf{Uvod:} U prvoj rečenici nedostaje "je", odnosno "U vreme pisanja ovog rada je dostupno mnoštvo debagera..."{} ili "U vreme pisanja ovog rada dostupno je mnoštvo debagera...".
+
+\textbf{Metode debagovanje (Neformalno debagovanje):} "pogotovo ako vršimo \textit{puno} sitnih popravki ", jedna strana stručnjaka smatra da je ovakvo korišćenje prideva
+"puno" nepravilno, dok druga strana smatra za ispravno. Svakako \textit{mnogo} je sa obe strane ispravno.
+
+\textbf{Metode debagovanje (Empirijski naučni metod):} "...ali je sa druge strane je temeljan i koncizan." Jedno "je"{} je višak.
+
+\textbf{Gde se on koristi i za koje jezike (Linux):} " IBM Z (s390x="{} pretpostavka je da umesto = treba da stoji ).
+
+\textbf{Poređenje sa drugim popularnim debagerima: } U nabrajanju se koristi engleski jezik, odnosno prepisane rečenice na engleskom jeziku.
+
+\textbf{Zaključak: } "Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor"{} fali "je", odnosno "Ukoliko je projekat za macOS platformu onda je LLDB zasigurno pravi izbor".
+
+
+\textbf{Zarez: } "{}Sa verzijom 5 Xcode razvojnog okruženja (\textbf{,}) LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. "
+
+"...ne zahteva nikakva dodatna podešavanja, međutim(,) CLion je komercijalni..."
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da, rad sadrži sve bitne informacije koje su neophodne, pritom pridržavati se datog formata.
+\item Da li je nešto važno propušteno?\\
+Nije, sve bitne informacije su tu.
+\item Da li ima suštinskih grešaka i propusta?\\
+Ne, osim gorenavedenih sitnih grešaka, koje nisu suštinske i od velikog značaja.
+\item Da li je naslov rada dobro izabran?\\
+Da, naslov govori šta je jezgro oko kojeg se gradi sam rad.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Da, s tim da možda fali i koja reč o tome da se u radu pominje i debagovanje u opštem smislu.
+\item Da li je rad lak-težak za čitanje?\\
+Ne, u radu se ne nalazi previše stručnih izraza do neophodnih, dok su rečenice prilagođene sasvim korektno.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Dovoljno je osnovno poznavanje programiranja i nekih osnovnih pojmova vezanih za isto,
+što bi trebalo svako zainteresovan za ovaj rad da poseduje.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da, sva literatura je tu i pravilno citirana (osim gorenavedenog propusta ili drugačijeg viđenja autora).
+\item Da li su u radu reference korektno navedene?\\
+Da, svaki grafički element je pravilno referisan.
+\item Da li je struktura rada adekvatna?\\
+Da, radu se prilazi sa opštom pričom o debagovanju, polako se prelazi na suštinu rada (priču o LLDB-u) 
+i na kraju se govori kad je bolje koristiti LLDB od nekih drugih alata iste namene.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da, rad ispunjava sve elemente propisane uslovima, po minimum jedna tabela i slika su tu, broj strana 
+između 10 i 12 je zadovoljen.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Da, i tabele i slika na prikladan i funkcionalan način prikazuju potrebne informacije.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+C) Upućen u samo debagovanje, što se tiče LLDB-a upućen za potrebe recenziranja.
+
+\chapter{Recenzent \odgovor{--- ocena:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad govori o debagovanju i o LLDB debageru. Objašnjeno je šta je debagovanje, bag, debager i opisani su metodi debagovanja kao i tehnike za prevenciju. Veći deo rada se bavi konkretno sa LLDB debagerom, upoznaje nas sa njegovim karakteristikama i korišćenjem u različitim okruženjima. Završava se poredjenjem LLDB sa drugim popularnim debagerima.
+
+\section{Krupne primedbe i sugestije} 
+\label{section:kpis}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Sažetak prikazuje samo osnovnu ideju rada pa ne daje dovoljno informacija čitaocu da nastavi sa čitanjem. U sažetku se ne spominje debagovanje kao metod, a celo drugo poglavlje je o toj metodi.  Sazetak malo proširiti ili izmeniti. Uvod i zaključak bih pohvalio. \\
+Reference koje se koriste u radu ne idu redom, izmenio bih da idu od početka rada redom (primer 1 referenca 1 se nalazi na 8 strani, a prva korišćena referenca je broj 3 na 2 strani)(primer 2 na strani 6 u prvom pasusu ide prvo referenca 20, pa 6, da bi u pasusu ispod išla referenca 21).
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Postoji nekoliko malih ispravki:
+\begin{enumerate}
+\item  U prvoj rečenici uvoda fali predikat je ("U vreme pisanja ovog rada dostupno JE mnoštvo debagera za jezike C,
+C++, i Objective-C."). 
+\item Pri kraju prvog pasusa na 5 strani piše "okruzenju" umesto "okruženju". 
+\item Mislim da nazivi poglavlja 4 i 5 bi bili stilski lepši u potvrdnom obliku umesto upitnog.  
+\end{enumerate}
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da, rad u potpunosti odgovara na zadatu temu.
+\item Da li je nešto važno propušteno?\\
+Ne, obradjena tema ne deluje da ima neki propust.
+\item Da li ima suštinskih grešaka i propusta?\\
+Ne, nema suštinskih grešaka i propusta.
+\item Da li je naslov rada dobro izabran?\\
+Da, naslov rada odgovara radu koji je napisan.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Delimično, više o tome u segmentu za krupne primedbe i sugestije ~\ref{section:kpis}.
+\item Da li je rad lak-težak za čitanje?\\
+Lak je za čitanje, zanimljiv i drži pažnju.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Ne. Predznanje nije potrebno, čitanjem rada se lako upoznaje sa temom i pojmovima.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da, u radu je navedena odgovarajuća literatura.
+\item Da li su u radu reference korektno navedene?\\
+Sve reference su korektno navedene.
+\item Da li je struktura rada adekvatna?\\
+Da, struktura rada je adekvatno napisana.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da, rad sadrži sve propisane elemente.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Jesu, adekvatne su.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Srednje upućen sam u ovu temu, poznato mi je debagovanje. Sa debagerom LLDB sam se sreo na predmetu Konstrukcija Kompilatora iz koga se obradjivao uz LLVM.
+
+
+\chapter{Dodatne izmene}
+%Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+
+\end{document}
