@@ -79,7 +79,7 @@ Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i nauč
 \section{Uvod}
 \label{sec:uvod}
 
-U vreme pisanja ovog rada dostupno mnoštvo debagera za jezike C, C++, i Objective-C. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Najpopularniji izbori debagera za ove programske jezike su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi, niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
+U vreme pisanja ovog rada dostupno je mnoštvo debagera za jezike C, C++, i Objective-C. Svaki sa svojim specifičnostima koji variraju od platforme do platforme. Najpopularniji izbori debagera za ove programske jezike su LLDB, GDB i Microsoft Visual Studio debager. Nije na prvi pogled očigledno koji je najbolji u zavisnosti od projekta na kom se radi, niti zašto bi neko ko tek počinje svoju karijeru uopšte koristio alat kao što je debager.
 Nakon pročitanog rada čitalac će biti upoznat sa osnovnim tehnikama debagovanja i specifičnostima debagovanja sa LLDB-om. Za one kojima više odgovara rad u integrisanom razvojnom okruženju poglavlje (\ref{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}) daje pregled popularnih razvojnih okruženja i na koji način integrišu LLDB. Na kraju su predstavljena poređenja LLDB-a sa drugim debagerima kako bi čitalac lakše mogao da donese odluku da li je LLDB pravi izbor za posao kojim se bavi u zavisnosti od platforme na kojoj radi. 
 
 
@@ -140,7 +140,7 @@ Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju proc
   \item Pokušati sa nekom jednostavnom popravkom;
   \item Ponavljati korak (a) dok se problem ne reši.
   \end{enumerate}
-  Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo puno sitnih popravki za koje nismo sigurni da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema \cite{bagovi_smalkov}.
+  Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo mnogo sitnih popravki za koje nismo sigurni da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema \cite{bagovi_smalkov}.
   
 \item \textbf{Empirijski naučni metod}:
   Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
@@ -152,7 +152,7 @@ Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju proc
   \item Eksperimentalno proveriti ispravnost predviđanja;
   \item Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje.
   \end{enumerate}
-  \indent Uopšteno gledano, ovo je najbolji pristup debagovanju. Često je jako zahtevan i oduzima dosta vremena, ali je sa druge strane je temeljan i koncizan \cite{bagovi_smalkov}.
+  \indent Uopšteno gledano, ovo je najbolji pristup debagovanju. Često je jako zahtevan i oduzima dosta vremena, ali je sa druge strane temeljan i koncizan \cite{bagovi_smalkov}.
   
   
 \item \textbf{Heurističko debagovanje}: Ova vrsta debagovanja podrazumeva postojanje heuristike (skup pravila), koja olakšava brže i efikasnije pronalaženje grešaka. Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova. Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju ,,dovoljno dobra rešenja'' \cite{bagovi_smalkov}.
@@ -179,7 +179,7 @@ void example(int* ptr) {
 
 Debager je računarski program koji se koristi za uklanjanje grešaka, testiranje rada i proveru ispravnosti drugih programa. Debageri daju napredne funkcije kao što su pokretanje programa korak po korak (eng. single-stepping), praćenje vrednosti promenljivih kao i stek okvira, praćenje na nivou instrukcija i stanja procesora, zaustavljanje ili pauziranje izvršavanja programa na takozvanim tačkama prekida (eng. breakpoint), a neki čak i omogućavaju menjanje programa tokom izvršavanja.
 
-Većina popularnih debagera daje samo jednostavno okruženje komandne linije (eng. command-line interface), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (eng. graphical user interface) debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruzenju Visual Studio. 
+Većina popularnih debagera daje samo jednostavno okruženje komandne linije (eng. command-line interface), često iz razloga da maksimizuju portabilnost i minimizuju trošenje sistemskih resursa računara. Ipak, popravljanje grešaka u programu preko grafičkog korisničkog okruženja (eng. graphical user interface) debagera se često smatra jednostavnijim, produktivnijim i ugodnijim za rad. Neki debageri pružaju i mogućnosti obrnutog debagovanja (debagovanje unazad) koje omogućava da se vratimo na prethodno stanje programa (step backward). Jedan od debagera koji pruža ovu mogućnost je IntelliTrace koji se koristi u Microsoft-ovom razvojnom okruženju Visual Studio. 
 
 Debagovanje unazad je jako korisno i sve se više koriste debageri koji omogućavaju ovo svojstvo. Mana debagovanja unazad je usporavanje čitavog procesa debagovanja pa čak i do dva puta. Debageri mogu biti zavisni od programskog jezika, ako se mogu koristiti za debagovanje jednog konkretnog jezika, ili mogu biti višejezični i koristiti se za debagovanje više programskih jezika. Neki debageri uključuju i zaštitu memorije kako bi izbegli prekoračenje bafera, ili onemogućili korisniku da pristupa memoriji za koju nema dozvolu i slično \cite{ssq_debug_def}.
 
@@ -277,7 +277,7 @@ LLDB se koristi za debagovanje programa pisanih u programskim jezicima C, Object
 Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Kompletnost skupa funkcionalnosti varira od platforme do platforme\cite{lldb_status}:
 \begin{itemize}
 \item FreeBSD - zaostaje za Linux-om, ali brzo napreduje.
-\item Linux - Približava se kompletnosti funkcionalnosti za debagovanje x86-64, i386, ARM, AArch64, IBM POWER (ppc64), IBM Z (s390x=, i MIPS64 programa.
+\item Linux - Približava se kompletnosti funkcionalnosti za debagovanje x86-64, i386, ARM, AArch64, IBM POWER (ppc64), IBM Z (s390x), i MIPS64 programa.
 \item macOS - LLDB je sistemski debager na macOS, iOS, tvOS, i watchOS za x86, i386, ARM, i AArch64 debagovanje. Na ovoj platformi ima najbogatiji skup funkcionalnosti koje implementira.
 \item Windows - I dalje u razvojnoj fazi, ali već koristan za i386 programe.
 \end{itemize}
@@ -346,7 +346,7 @@ LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS pla
 Da bi omogućili korišćenje LLDB-a potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager.  CLion ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.  Dostupne funkcionalnosti variraju od platforme do platforme kao što se može videti u tabeli (\ref{tab:table lldb features}).
 
 \subsection*{Xcode 5}
-Sa verzijom 5 Xcode razvojnog okruženja LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
+Sa verzijom 5 Xcode razvojnog okruženja, LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
 
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
@@ -423,7 +423,7 @@ Visual Studio Debugger je takođe jedan od poznatijih debagera koji se može upo
 Jednostavne greške koje se prostiru nekoliko linija se možda i mogu ispraviti bez pomoći spoljnih alata, ali složenije greške koje obuhvataju više komponenti mngo teže, tako da je debager jedan od obaveznih alata kojim bi svaki programer trebalo da vlada.
 Debagovanje je svakodnevnica svakog programera i dobar debager kao što je LLDB može značajno smanjiti vreme provedeno u debagovanju, ostavljajući više vremena za razvoj. LLDB nastavlja da se unapređuje iz godine u godinu i već u dobrom delu prevazilazi svoje konkurente.
 
-LLDB je podrazumevani debager u XCode5 tako da ovde praktično nema dodatnih koraka podešavanja. Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojnim okruženjem i ne zahteva nikakva dodatna podešavanja, međutim CLion je komercijalni proizvod koji se plaća. Alternativni način koji takođe zahteva minimalno podešavanja je dodatak Visual Studio Code editoru koji pruža GUI za debagovanje LLDB-om. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moći da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa Xcode 5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi.
+LLDB je podrazumevani debager u XCode5 tako da ovde praktično nema dodatnih koraka podešavanja. Najlakša integracija sa razvojnim okruženjem je trenutno u CLion-u gde LLDB dolazi zajedno u paketu sa ovim razvojnim okruženjem i ne zahteva nikakva dodatna podešavanja, međutim, CLion je komercijalni proizvod koji se plaća. Alternativni način koji takođe zahteva minimalno podešavanja je dodatak Visual Studio Code editoru koji pruža GUI za debagovanje LLDB-om. Na Windows platformi je trenutno najbolje koristiti Microsoft-ov debager jer je najbolje integrisan sa Visual Studio-om, ali se očekuje da će u bliskoj budućnosti kvalitet LLDB na Windows platformama dostići nivo da će moći da parira Microsoft-ovom. Ukoliko je projekat za macOS platformu onda je LLDB zasigurno pravi izbor jer je podrazumevani debager za ovu platformu i odlično je integrisan sa Xcode 5 razvojnim okruženjem. Za Linux korisnike LLDB nudi mnoštvo funkcionalnosti koje ne postoje u GDB-u kao i poboljšane performanse, tako da ako projekat to dozvoljava LLDB je pravi izbor i na Linux platformi.
  
 Uzimajući u obzir da svaka promena svakodnevnih navika, pa i onih koji se tiču jednog alata koji se koristi svaki dan kao što je debager, LLDB je vredan inicijalnog truda koji treba uložiti da bi se zamenio prethodno korišćeni debager, a ako je LLDB prvi debager sa kojim se programer susretne tim bolje.
 \addcontentsline{toc}{section}{Literatura}
