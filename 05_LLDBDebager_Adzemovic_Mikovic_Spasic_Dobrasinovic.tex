@@ -212,7 +212,7 @@ options) omogućava se \cite{lldb_to_gdb_map}:
 	\item{Korišćenje watchpoint-a (određene promenljive, takve da debager zaustavlja
 		proces ili nit kada se njeno stanje promeni).}
 	
-	\item{Korišćenje dodatnih uslova nad breakpoint-ovima i watchpoint-ovima.}
+	\item{Korišćenje dodatnih uslova nad breakpoint-ima i watchpoint-ima.}
 	\begin{itemize}
 		\item{Nastavljanje ili pokretanje programa.}
 	\end{itemize}
@@ -258,7 +258,7 @@ U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skra
 			\verb|breakpoint set --file 1.c --line 42|
 			& Postavlja breakpoint na red 42 u izvornom kodu programa 1.c. \\ \hline
 			\verb|breakpoint list|
-			& Ispisuje postojeće breakpoint-ove debagera. \\ \hline
+			& Ispisuje postojeće breakpoint-e debagera. \\ \hline
 			\verb|breakpoint disable 1|
 			& Deaktivira breakpoint 1. \\ \hline
 			\verb|apropos <ključna_reč>|
@@ -289,7 +289,7 @@ Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude komple
 \label{tab:table lldb features}
 \begin{tabular}{|c|c c c|} 
  \hline
- Feature & Linux & macOS & Windows \\ [0.5ex] 
+ Funkcionalnost & Linux & macOS & Windows \\ [0.5ex] 
  \hline
  Backtracking & Yes & Yes & Yes \\ 
  Breakpoints & Yes & Yes & Yes \\
@@ -307,12 +307,12 @@ Skup funkcionalnosti se iz godine u godinu unapređuje i teži se da bude komple
 
 Korisnici Windows platformi obično preferiraju alate napravljene od strane Microsoft-a jer su najbolje integrisani sa Windows-om i imaju najbolju podršku na tom operativnom sistemu.
 
-Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB-u. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Epla.
+Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB-u. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Apple-a.
 
 \section{Koja razvojna okruženja podržavaju upotrebu ovog debagera i kako?}
 \label{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 
-LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od popularnih razvojnih okruženja koja imaju mogućnost integracije LLDB-a su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Epl održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u Xcode 5 razvojnom okruženju. 
+LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od popularnih razvojnih okruženja koja imaju mogućnost integracije LLDB-a su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Apple održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u Xcode 5 razvojnom okruženju. 
 U daljem tekstu je dat opis načina instalacije na svakom od gore navedenih okruženja i kratak opis koje funkcionalnosti LLDB debagera podržavaju. Za detaljna uputstva pogledati zvanične veb stranice ovih razvojnih okruženja.
 
 \subsection*{Visual Studio Code}
@@ -320,7 +320,7 @@ Instalacija u Visual Studio Code-u (VSC) se svodi na instaliranje dodataka sa VS
 Podržava:
 \begin{itemize}
 \item Debagovanje na Linux (x64 or ARM), macOS i Windows.
-\item Uslovni breakpoint-ovi, breakpoint-ovi na funkcijama, watchpoint-ovi.
+\item Conditional breakpoint, breakpoint na funkcijama, watchpoint.
 \item Pokretanje iz internog ili eksternog terminala.
 \item Dissasembly pogled i kretanje instrukciju po instrukciju.
 \item Python skripte.
@@ -333,10 +333,10 @@ U Eclipse razvojnom okruženju se korišćenje omogućava instaliranjem Eclipse 
 \begin{itemize}
 \item Debagovanje sa drugog računara nije moguće.
 \item Core dump debagovanje nije moguće.
-\item Watchpoint-ovi ne radi.
+\item Watchpoint ne radi.
 \item Ne može se izmeniti vrednost promenljivih tokom debagovanja.
 \item Ne može se menjati sadržaj memorije.
-\item Skoči na liniju, pomeri se na liniju nije implementirano.
+\item Jump-to-line, move-to-line nije implementirano.
 \item Modules view se ne popuni.
 \end{itemize}
 
@@ -346,7 +346,7 @@ LLDB dolazi u paketu zajedno sa CLion razvojnim okruženjem na Linux i macOS pla
 Da bi omogućili korišćenje LLDB-a potrebno je u podešavanjima za dati projekat odabrati postojeći LLDB debager.  CLion ne postavlja nikakva ograničenja na LLDB debager kao što je to slučaj kod Eclipse razvojnog okruženja.  Dostupne funkcionalnosti variraju od platforme do platforme kao što se može videti u tabeli (\ref{tab:table lldb features}).
 
 \subsection*{Xcode 5}
-Sa verzijom 5 Xcode razvojnog okruženja, LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Eplova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
+Sa verzijom 5 Xcode razvojnog okruženja, LLDB debager je podrazumevani debager u Xcode razvojnom okruženju. LLDB je Apple-ova zamena za GDB koja je razvijana u koordinaciji sa LLVM-om. Počevši od Xcode 5 svi novi i postojeći projekti se automatski rekonfigurišu tako da koriste LLDB. Dizajniran je tako da korišćenje bude što sličnije GDB debageru kako bi omogućio programerima da se lako prebace sa GDB na LLDB debager. LLDB debager u Xcode 5 ima najbogatiji skup implementiranih funkcionalnosti u odnosu na druge platforme.
 
 \section{Poredjenje sa drugim popularnim debagerima}
 \label{sec:naslovN}
@@ -429,7 +429,6 @@ Uzimajući u obzir da svaka promena svakodnevnih navika, pa i onih koji se tiču
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{seminarski} 
-\bibliographystyle{plain}
-
+\bibliographystyle{unsrt}
 
 \end{document}
