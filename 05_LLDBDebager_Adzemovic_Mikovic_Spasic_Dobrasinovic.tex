@@ -134,14 +134,14 @@ Sa slike (\ref{fig:bagovi}) vidimo da je najčešći razlog za teške bagove upr
 
 \subsection{Metode debagovanja}
 \label{subsec:podnaslov2}
-Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju procesu debagovanja koda. U zavisnosti od težine problema, iskustva programera i alata koji mu stoje na raspolaganju metodi debagovanja se mogu grubo podeliti na:
+Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju procesu debagovanja koda. U zavisnosti od težine problema, iskustva programera i alata koji mu stoje na raspolaganju metodi debagovanja se mogu grubo podeliti na \cite{bagovi_smalkov}:
 \begin{enumerate}
 \item \textbf{Neformalno debagovanje}: Neformalno debagovanje predstavlja jednostavan i površan pristup i čine ga dva koraka.
   \begin{enumerate}
   \item Pokušati sa nekom jednostavnom popravkom;
   \item Ponavljati korak (a) dok se problem ne reši.
   \end{enumerate}
-  Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo mnogo sitnih popravki za koje nismo sigurni da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema \cite{bagovi_smalkov}.
+  Ovaj metod se ne preporučuje u praksi i često može da proizvede nove probleme, pogotovo ako vršimo mnogo sitnih popravki za koje nismo sigurni da će rešiti problem. Ponekad, ako su u pitanju sitne greške, ovaj metod se može oprezno koristiti jer dovodi do brzog rešenja problema.
   
 \item \textbf{Empirijski naučni metod}:
   Ovaj postupak je sličan uobičajenom istaživačkom metodu u prirodnim naukama.
@@ -153,10 +153,10 @@ Programeri iskustvom razviju sopstvene načine kojima intuitivno pristupaju proc
   \item Eksperimentalno proveriti ispravnost predviđanja;
   \item Ponavljati prethodne korake uz popravljanje ili menjanje hipoteze, sve dok se ne potvrdi ispravnost hipoteze ili ne ponestanu mogućnosti za njeno dalje unapređivanje.
   \end{enumerate}
-  \indent Uopšteno gledano, ovo je najbolji pristup debagovanju. Često je jako zahtevan i oduzima dosta vremena, ali je sa druge strane temeljan i koncizan \cite{bagovi_smalkov}.
+  \indent Uopšteno gledano, ovo je najbolji pristup debagovanju. Često je jako zahtevan i oduzima dosta vremena, ali je sa druge strane temeljan i koncizan.
   
   
-\item \textbf{Heurističko debagovanje}: Ova vrsta debagovanja podrazumeva postojanje heuristike (skup pravila), koja olakšava brže i efikasnije pronalaženje grešaka. Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova. Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju ,,dovoljno dobra rešenja'' \cite{bagovi_smalkov}.
+\item \textbf{Heurističko debagovanje}: Ova vrsta debagovanja podrazumeva postojanje heuristike (skup pravila), koja olakšava brže i efikasnije pronalaženje grešaka. Često se za određene skupove problema prave različite heuristike, koje se testiraju u praksi i kasnije koriste kao pravila pri otklanjanju određenih vrsta bagova. Ovakve heuristike odlikuje izbegavanje pravljenja previda pri posmatranju, sužavanje skupa kandidata za iskazivanje hipoteza, usmeravanje posmatranja prema uzroku problema i drugo. Heuristike nisu optimalna rešenja niti egzaktna pravila koja vode rešenju problema, ali često su jako efikasne i daju ,,dovoljno dobra rešenja''.
 \end{enumerate}
 
 \subsection{Tehnike za prevenciju bagova}
