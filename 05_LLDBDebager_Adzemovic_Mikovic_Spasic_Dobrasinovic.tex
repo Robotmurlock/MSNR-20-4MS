@@ -61,7 +61,7 @@
 
 \title{Debagovanje sa LLDB-om\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
-\author{Momir Adžemovic, Miloš Miković, Marko Spasić,\\ Mladen Dobrašinović\\ \\ \small momir.adzemovic@gmail.com, spaskeasm@gmail.com,\\ \small milos.mikovicpos@gmail.com, dobrasinovic.mladen@gmail.com}
+\author{Momir Adžemović, Miloš Miković, Marko Spasić,\\ Mladen Dobrašinović\\ \\ \small momir.adzemovic@gmail.com, spaskeasm@gmail.com,\\ \small milos.mikovicpos@gmail.com, dobrasinovic.mladen@gmail.com}
 
 \date{1.~april 2020.}
 
@@ -108,19 +108,18 @@ Koraci pri debagovanju \cite{bagovi_smalkov}:
 \subsection{Bagovi uopšteno}
 \label{subsec:podnaslov1}
 
-Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja, kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu. Zato se često termini propust i greška koriste u širem kontekstu razvoja, a termin bag u užem i vezan je za propuste u programiranju.
+Postojanje grešaka (bagova) se često neopravdano poistovećuje sa propustima u programiranju.  U širem kontekstu bag, greška, defekt ili propust se odnosi na bilo koju vrstu problema u bilo kojoj fazi procesa razvoja, kao što su greške u projektovanju, planiranju, arhitekturi, dizajnu. Zato se često termini propust i greška koriste u širem kontekstu razvoja, a termin bag u užem i vezan je za propuste u programiranju. Greške u programiranju mogu se grubo podeliti na sintaksne i semantičke. Semantičke greške su logičke prirode i daleko ih je teže ispraviti od sintaksnih grešaka. Bagovi u većini slučajeva predstavljaju semantičku grešku.
 
-Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata:
+Jedna od najčešćih klasifikacija bagova prema načinu ispoljavanja obuhvata \cite{bagovi_smalkov}:
 \begin{enumerate}
-	\item \textbf{Nekonzistentnosti u korisničkom interfejsu}: često je slučaj da se komanda ctrl+f koristi za pretraživanje dokumenta, Outlook koristi   
-	tu komandu za prosleđivanje poruke.
+	\item \textbf{Nekonzistentnosti u korisničkom interfejsu}: greške ovog tipa zaista mogu biti neugodne, na primer editor teksta koji ne koristi komandu ctrl+s za čuvanje dokumenta.
 	\item \textbf{Neispunjena očekivanja}: dobijanje neočekivanog (pogrešnog) rezultata.
-	\item \textbf{Slabe performanse}: stalno ili povremeno čekanje rezultata zbog lošeg odziva sistema, takvi programi su često neupotrebljivi.
+	\item \textbf{Slabe performanse}: stalno ili povremeno čekanje rezultata zbog lošeg odziva sistema, sporo izvršavanje softvera u realnom vremenu, takvi programi su često neupotrebljivi.
 	\item \textbf{Padovi sistema i oštećenja podataka}: predstavljaju najopasniji vid bagova, mogu trajno oštetiti sistem i podatke.
 \end{enumerate}
 
 
-Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Neke od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju \cite{bagovi_smalkov}.
+Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanjem i planskim građenjem koda. Neke od okolnosti koje pogoduju nastajanju bagova su nedovoljna stručnost razvojnog tima i povećan stres na poslu, a informisanost, sistematičnost i redovnost ih suzbijaju .
 
 \begin{figure}[h!]
 	\begin{center}
@@ -129,7 +128,7 @@ Bagovi su jako neugodni i treba ih sistematski otklanjati čestim refaktorisanje
 	\caption{Glavni razlozi najtežih bagova \cite{study_bugs}}
 	\label{fig:bagovi}
 \end{figure}
-
+\cite{bagovi_smalkov}
 Sa slike (\ref{fig:bagovi}) vidimo da je najčešći razlog za teške bagove upravo rastojanje od izvora greške do neočekivanog ponašanja. U ovim situacijama su veoma bitne metode debagovanja, pa i alati koji se koriste za debagovanje (debageri).
 
 \subsection{Metode debagovanja}
