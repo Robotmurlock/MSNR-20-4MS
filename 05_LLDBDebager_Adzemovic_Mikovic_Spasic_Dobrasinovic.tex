@@ -68,7 +68,8 @@
 \maketitle
 
 \abstract{
-Ovaj rad predstavlja grupni projekat u okviru kursa Metologija stručnog i naučnog rada. Ovo je dobra prilika da podelimo sa kolegama naša znanja koja smo stekli ovim istraživanjem koje ima velike primene u praksi. Rad većinom pokriva interesantne informacije o debageru LLDB kao jednom od produžetaka LLVM-a, način korišćenja LLDB i poređenje sa ostalim debagerima.  
+
+``Debager kao debger. Kao da tu ima nekih bitnih razlika.`` bi pomislio neko ko nije bio u prilici da debaguje teške bagove bazičnim debagerom. Nakon čitanja rada čitalac će biti upoznat sa mogućnostima LLDB debagera na različitima platformama i da li je prava odluka ostati na debageru koju koristi ili se prebaciti na LLDB.
 
 }
 
@@ -271,7 +272,7 @@ U ovakvom obliku, imenica se zove i komanda, a glagol potkomanda. Postoje i skra
 \end{table}
 
 % Marov deo
-\section{Gde se on koristi i za koje jezike? }
+\section{Platforme na kojima se koristi i jezici koje podržava }
 \label{sec: Gde se on koristi i za koje jezike?}
 LLDB se koristi za debagovanje programa pisanih u programskim jezicima C, Objective-C, i C++. Postoji i verzija za debagovanje programa napisanih u Swift programskom jeziku, tu verziju održava Swift zajednica. 
 Dostupan je na FreeBSD, Linux, macOS, NetBSD, i od 2015 na Windows platformi. Kompletnost skupa funkcionalnosti varira od platforme do platforme\cite{lldb_status}:
@@ -309,7 +310,7 @@ Korisnici Windows platformi obično preferiraju alate napravljene od strane Micr
 
 Na Linux i macOS najčešće korišćene funkcionalnosti debagera su implementirane u LLDB-u. Na macOS platformi je LLDB najbolji izbor zato što ima najpotpuniji skup funkcionalnosti u odnosu na druge platforme i održavan je od strane Apple-a.
 
-\section{Koja razvojna okruženja podržavaju upotrebu ovog debagera i kako?}
+\section{Razvojna okruženja koja podržavaju upotrebu ovog debagera}
 \label{sec:Koja razvojna okruzenja podrzavaju upotrebu ovog debagera i kako?}
 
 LLDB se može koristiti kao alat komandne linije ili uz neko razvojno okruženje. Neka od popularnih razvojnih okruženja koja imaju mogućnost integracije LLDB-a su Visual Studio Code, Eclipse, CLion, i Xcode 5. Pošto Apple održava LLDB verziju za svoje operativne sisteme LLDB je podrazumevani debager u Xcode 5 razvojnom okruženju. 
