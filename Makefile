@@ -7,3 +7,6 @@ seminarski:
 	pdflatex 05_LLDB.tex
 	pdflatex 05_LLDB.tex
 
+	pdflatex Prezentacija.tex
+	pdflatex Prezentacija.tex
+
