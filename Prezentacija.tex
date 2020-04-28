@@ -115,6 +115,15 @@ for(i = length - 1; i >= 0; i--)
 \end{frame}
 
 
+\begin{frame}{Šta je LLDB?}
+  \begin{itemize}
+  \item LLDB je napravljen sa ciljem da se stvori visoko-performantni debager sledeće generacije u okviru projekta LLVM.
+  \item LLDB iskorištava funkcionalnosti Clang kompilatora i LLVM-a.
+    (disassembly, parser, JIT kompilator, podrška za jezike)
+  \item LLDB pruža C++ i Python API-e i pruža podršku za skripting.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Osnove LLDB debagera komandne linije}
   Sintaksna struktura komandi:
   {\color{mymauve}{
@@ -217,7 +226,7 @@ for(i = length - 1; i >= 0; i--)
 		\item Visual Studio Debugger
 	\end{itemize}
 
-	Kako bi programer izabrao debager potrebno je da odgovori na sledeća pitanja postujući redosled:
+	Kako bi programer izabrao debager potrebno je da odgovori na sledeća pitanja poštujući redosled:
 	\begin{itemize}
 		\item Koje debagere podržava operativni sistem?
 		\item Da li okruženje koje koristi ima specijalnu podršku za odgovarajući debager?
