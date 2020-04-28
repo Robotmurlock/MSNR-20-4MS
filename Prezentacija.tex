@@ -22,6 +22,7 @@ dercolor={.5 .5 .5},implicit=false,unicode
 \usepackage{graphicx}
 \usepackage{xspace}
 \usepackage{fancyvrb}
+\usepackage{listings}
 
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[square]
@@ -57,11 +58,21 @@ dercolor={.5 .5 .5},implicit=false,unicode
   ,,Debagovanje je duplo teže od kodiranja, ako napišete kod na najlukaviji (odnosno najkomplikovaniji) način, po definiciji niste dovoljno pametni da ga debagujete.'' (Brian W. Kernighan)
 \end{frame}
 
-\begin{frame}{Metode debagovanja, tehnike za prevenciju bagova i debager}
- 
-  Tehnike za prevenciju bagova su unutrašnje i spoljašnje.\\~\\
+\begin{frame}[fragile]{Metode debagovanja, tehnike za prevenciju bagova i debager}
 
-  Šta je debager?
+  Šta je debager?\\~\\
+
+  Zašto debager?\\~\\
+  
+    \begin{lstlisting}
+const char *str = "hello";
+size_t length = strlen(str);
+size_t i;
+for(i = length - 1; i >= 0; i--)
+{
+    putchar(str[i]);
+}
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}{}
@@ -88,14 +99,4 @@ dercolor={.5 .5 .5},implicit=false,unicode
 \begin{frame}{}
 \end{frame}
 
-\begin{frame}{}
-\end{frame}
-
-
-\section*{}
-\begin{frame}
-  \begin{center}
-    {\Large HVALA NA PAŽNJI!}
-  \end{center}
-\end{frame}
 \end{document}
