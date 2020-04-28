@@ -137,28 +137,30 @@ for(i = length - 1; i >= 0; i--)
   Za istraživanje komandi u alatu se mogu koristiti {\color{mymauve}\verb|help|} i {\color{mymauve}\verb|apropos|}.
 \end{frame}
 
+\newcounter{row}
+\setcounter{row}{0}
 \begin{frame}[fragile]{Upoznavanje sa LLDB-om}
   \begin{table}[h!]
     \begin{center}
       \caption{Neke od osnovnih komandi LLDB-a.}
       \small
-      \begin{tabular}{|>{\color{mymauve}}l|}
+      \begin{tabular}{|>{\stepcounter{row}\arabic{row}.}l| >{\color{mymauve}}l|}
         \hline
-	\verb|process launch -- <argumenti>|
+	&\verb|process launch -- <argumenti>|
 	\\ \hline
-	\verb|thread step-in|
+	&\verb|thread step-in|
 	\\ \hline
-	\verb|thread step-inst-over|
+	&\verb|thread step-inst-over|
 	\\ \hline
-	\verb|breakpoint set --file 1.c --line 42|
+	&\verb|breakpoint set --file 1.c --line 42|
 	\\ \hline
-	\verb|breakpoint list|
+	&\verb|breakpoint list|
 	\\ \hline
-	\verb|breakpoint disable 1|
+	&\verb|breakpoint disable 1|
 	\\ \hline
-        \verb|watchpoint set variable global_var|
+        &\verb|watchpoint set variable global_var|
         \\ \hline
-        \verb|watchpoint modify -c '(global_var == 5)'|
+        &\verb|watchpoint modify -c '(global_var == 5)'|
         \\ \hline
       \end{tabular}
     \end{center}
