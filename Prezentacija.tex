@@ -120,10 +120,43 @@ for(i = length - 1; i >= 0; i--)
 \begin{frame}{}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{Poređenje sa ostalim popularnim debagerima}
+	
+	Konkurencija:
+	\begin{itemize}
+		\item GDB
+		\item Visual Studio Debugger
+	\end{itemize}
+
+	Kako bi programer izabrao debager potrebno je da odgovori na sledeća pitanja postujući redosled:
+	\begin{itemize}
+		\item Koje debagere podržava operativni sistem?
+		\item Da li okruženje koje koristi ima specijalnu podršku za odgovarajući debager?
+		\item Koji debager mu najviše odgovara?
+	\end{itemize}
+	
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{Poređenje sa GDB i VSD}
+	
+	LLDB i GDB
+	\begin{itemize}
+		\item Sličan skup komandi i opcija
+		\item GDB nudi više mogućnosti za sada (primer: single thread breakpoint)
+		\item LLDB je lakše formalno ubaciti u softver (licenca)
+		\item LLDB je moderniji (moderne biblioteke)
+		\item LLDB nema maskotu kao GDB:
+		\begin{figure}
+			\includegraphics[width=10mm,height=5mm]{Slike/gdb_mascot.png}
+		\end{figure}
+	\end{itemize}
+	
+	LLDB i Visual Studio Debugger
+	\begin{itemize}
+		\item VSD nudi grafički interfejs
+		\item LLDB ima bolju podršku za operativne sisteme
+	\end{itemize}
+
 \end{frame}
 
 \begin{frame}{}
