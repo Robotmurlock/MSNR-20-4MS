@@ -115,6 +115,18 @@ for(i = length - 1; i >= 0; i--)
 \end{frame}
 
 
+\begin{frame}{Šta je LLDB?}
+  \begin{itemize}
+  \item LLDB je napravljen sa ciljem da se stvori visoko-performantni debager sledeće generacije u okviru projekta LLVM.
+  \item LLDB iskorištava funkcionalnosti Clang kompilatora i LLVM-a.
+    (disassembly, parser, JIT kompilator, podrška za jezike)
+    \begin{itemize}
+    \item Podržava C++, C, Objective-C
+    \end{itemize}
+  \item LLDB pruža C++ i Python API-e i pruža podršku za skripting.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Osnove LLDB debagera komandne linije}
   Sintaksna struktura komandi:
   {\color{mymauve}{
@@ -128,28 +140,30 @@ for(i = length - 1; i >= 0; i--)
   Za istraživanje komandi u alatu se mogu koristiti {\color{mymauve}\verb|help|} i {\color{mymauve}\verb|apropos|}.
 \end{frame}
 
+\newcounter{row}
+\setcounter{row}{0}
 \begin{frame}[fragile]{Upoznavanje sa LLDB-om}
   \begin{table}[h!]
     \begin{center}
       \caption{Neke od osnovnih komandi LLDB-a.}
       \small
-      \begin{tabular}{|>{\color{mymauve}}l|}
+      \begin{tabular}{|>{\stepcounter{row}\arabic{row}.}l| >{\color{mymauve}}l|}
         \hline
-	\verb|process launch -- <argumenti>|
+	&\verb|process launch -- <argumenti>|
 	\\ \hline
-	\verb|thread step-in|
+	&\verb|thread step-in|
 	\\ \hline
-	\verb|thread step-inst-over|
+	&\verb|thread step-inst-over|
 	\\ \hline
-	\verb|breakpoint set --file 1.c --line 42|
+	&\verb|breakpoint set --file 1.c --line 42|
 	\\ \hline
-	\verb|breakpoint list|
+	&\verb|breakpoint list|
 	\\ \hline
-	\verb|breakpoint disable 1|
+	&\verb|breakpoint disable 1|
 	\\ \hline
-        \verb|watchpoint set variable global_var|
+        &\verb|watchpoint set variable global_var|
         \\ \hline
-        \verb|watchpoint modify -c '(global_var == 5)'|
+        &\verb|watchpoint modify -c '(global_var == 5)'|
         \\ \hline
       \end{tabular}
     \end{center}
@@ -211,7 +225,7 @@ for(i = length - 1; i >= 0; i--)
 
 \begin{frame}{Poređenje sa ostalim popularnim debagerima}
 
-	Kako bi programer izabrao debager potrebno je da odgovori na sledeća pitanja postujući redosled:
+	Kako bi programer izabrao debager potrebno je da odgovori na sledeća pitanja poštujući redosled:
 	\begin{itemize}
 		\item Koje debagere podržava operativni sistem?
 		\item Da li okruženje koje koristi ima specijalnu podršku za odgovarajući debager?
@@ -256,6 +270,12 @@ for(i = length - 1; i >= 0; i--)
 	\item Deo LLVM projekta
 	\item Razvoj brzo napreduje
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Literatura}
+  \nocite{*}
+  \bibliographystyle{unsrt}
+  \bibliography{prezentacija}
 \end{frame}
 
 \end{document}
